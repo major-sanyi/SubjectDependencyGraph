@@ -1,0 +1,1648 @@
+[
+  {
+    "id": "NBNEMI",
+    "name": "Mérnökinformatikus",
+    "length": "7",
+    "mustChoseCredit": "18",
+    "chosableCredit": "10",
+    "startingSpecSemester": "4",
+    "specialisations": [
+      {
+        "id": "NBNEMI-AI-BD",
+        "name": "Big Data és üzleti intelligencia specializáció",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEMI",
+        "subjects": [
+          {
+            "id": "GGXVP1GBEE",
+            "name": "Vállalkozások pénzügyei, számvitel alapjai ",
+            "kredit": "3",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-BD",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIEBD1GBEE",
+            "name": "Big data algoritmusok és programozás ",
+            "kredit": "5",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-BD",
+            "finished": null,
+            "preRequisites": [
+              "NIXKD1GBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIEER2GBEE",
+            "name": "ERP II. ",
+            "kredit": "7",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-BD",
+            "finished": null,
+            "preRequisites": [
+              "NIXER1GBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXAT1GBEE",
+            "name": "Adattárházak és üzleti intelligencia",
+            "kredit": "8",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-BD",
+            "finished": null,
+            "preRequisites": [
+              "NIXKD1GBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXER1GBEE",
+            "name": "ERP I. ",
+            "kredit": "2",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-BD",
+            "finished": null,
+            "preRequisites": [
+              "NIXVI0HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXKD1GBEE",
+            "name": "Korszeru adatbázisok",
+            "kredit": "5",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-BD",
+            "finished": null,
+            "preRequisites": [
+              "NIXAB0HBEE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      },
+      {
+        "id": "NBNEMI-AI-IOT",
+        "name": "IOT, beágyazott rendszerek és robotika specializáció",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEMI",
+        "subjects": [
+          {
+            "id": "NAXIT3IBEE",
+            "name": "Irányítástechnika ",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NIXRE1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NBERI1IBEE",
+            "name": "Robotirányítás ",
+            "kredit": "3",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NAXIT3IBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NBXRP1IBEE",
+            "name": "Bevezetés a robot programozásba ",
+            "kredit": "3",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NBXRT1IBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NBXRT1IBEE",
+            "name": "Robottechnika alapjai",
+            "kredit": "4",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NAXIT3IBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIEBP2IBEE",
+            "name": "Beágyazott eszközök programozása II. ",
+            "kredit": "4",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NIXBP1IBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXBE1IBEE",
+            "name": "Beágyazott és érzékeloalapú rendszerek",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NIXDR0HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXBP1IBEE",
+            "name": "Beágyazott eszközök programozása I.",
+            "kredit": "4",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NIXBE1IBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXSI1IBEE",
+            "name": "Szenzorhálózatok, IoT rendszerek",
+            "kredit": "4",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-IOT",
+            "finished": null,
+            "preRequisites": [
+              "NIXBP1IBEE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      },
+      {
+        "id": "NBNEMI-AI-IT",
+        "name": "Felho szolgáltatási technológiák és IT biztonság specializáció",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEMI",
+        "subjects": [
+          {
+            "id": "NIEFS2FBEE",
+            "name": "Felhoszolgáltatások II. ",
+            "kredit": "2",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-IT",
+            "finished": null,
+            "preRequisites": [
+              "NIXFS1FBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXFS1FBEE",
+            "name": "Felhoszolgáltatások I.",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-IT",
+            "finished": null,
+            "preRequisites": [
+              "NIXVT1FBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXHT1FBEE",
+            "name": "Hálózati technológiák I.",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-IT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSH0HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXSH1FBEE",
+            "name": "Számítógép hálózatok és felhok biztonsága",
+            "kredit": "5",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-IT",
+            "finished": null,
+            "preRequisites": [
+              "NIEIB0HBEE",
+              "NIXHT1FBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXVT1FBEE",
+            "name": "Virtualizált tárolórendszerek",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-IT",
+            "finished": null,
+            "preRequisites": [
+              "NIEOR1HBEE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      },
+      {
+        "id": "NBNEMI-AI-IT-A",
+        "name": "Felho IT biztonság specializáció",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEMI",
+        "subjects": [
+          {
+            "id": "NIEIB1FBEE",
+            "name": "Intézményi informatikai biztonság ",
+            "kredit": "7",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-IT-A",
+            "finished": null,
+            "preRequisites": [
+              "NIXIS1FBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIS1FBEE",
+            "name": "Informatikai rendszerek és szolgáltatások biztonsága",
+            "kredit": "5",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-IT-A",
+            "finished": null,
+            "preRequisites": [
+              "NIEIB0HBEE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      },
+      {
+        "id": "NBNEMI-AI-IT-B",
+        "name": "Felho hálózati specializáció",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEMI",
+        "subjects": [
+          {
+            "id": "NIEVA1FBEE",
+            "name": "Virtuális hálózatok és adatközpontok technológiái ",
+            "kredit": "7",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-IT-B",
+            "finished": null,
+            "preRequisites": [
+              "NIXFS1FBEE",
+              "NIXHT2FBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXHT2FBEE",
+            "name": "Hálózati technológiák II.",
+            "kredit": "5",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-IT-B",
+            "finished": null,
+            "preRequisites": [
+              "NIXHT1FBEE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      },
+      {
+        "id": "NBNEMI-AI-SZT",
+        "name": "Szoftvertervezés és -fejlesztés specializáció",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEMI",
+        "subjects": [
+          {
+            "id": "EKMTKFMOOC",
+            "name": "Tartalomkezelés a felhoben: Orchard CMS",
+            "kredit": "2",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAIAS1SVED",
+            "name": "ASP.NET és MVC",
+            "kredit": "3",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSG1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAIDP1SVED",
+            "name": "Deep Learning I.",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NSXHF1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAIDP2SVED",
+            "name": "Deep Learning II.",
+            "kredit": "3",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NAIDP1SVED"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAIIK1SVED",
+            "name": "Infokommunikációs akadálymentesítés",
+            "kredit": "3",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAISF1SVED",
+            "name": "Szoftverfejlesztés multinacionális vállalatoknál",
+            "kredit": "3",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAITA1SVEC",
+            "name": "Tesztautomatizálás alapjai ",
+            "kredit": "3",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NAIWD1SVED",
+            "name": "Web development using PHP/Symfony",
+            "kredit": "5",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NBIJM1SVED",
+            "name": "A Java mikroszervíz projekt",
+            "kredit": "3",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NBINS1SVED",
+            "name": "Nagyvállalati szoftverfejlesztés agilis módszertannal",
+            "kredit": "3",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIEHA1SBEE",
+            "name": "Haladó algoritmusok ",
+            "kredit": "4",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXAP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIETE1SBEE",
+            "name": "Tesztelés ",
+            "kredit": "3",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXNR1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXAP1SBEE",
+            "name": "Adatpárhuzamos programozás",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIO1SBEE",
+            "name": "iOS alapú fejlesztés",
+            "kredit": "4",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIP1SBEE",
+            "name": "Interpreter és szkript nyelvek",
+            "kredit": "4",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXJA1SBEE",
+            "name": "JEE fejlesztés",
+            "kredit": "4",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE",
+              "NSXJW1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXKA1SBEE",
+            "name": "Képfeldolgozás alap algoritmusai",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NSXHF1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXKH1SBEE",
+            "name": "Képfeldolgozás haladó algoritmusai",
+            "kredit": "4",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXKA1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXNR1SBEE",
+            "name": "Nagy rendszerek fejlesztésének technológiája",
+            "kredit": "3",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NSXHF1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXPA1SBEE",
+            "name": "Hatékony C++ programozás",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NSXHF1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXPP1SBEE",
+            "name": "Párhuzamos és elosztott rendszerek programozása",
+            "kredit": "5",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NSXHF1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXST3SBEE",
+            "name": "Modern szoftvertechnológia",
+            "kredit": "2",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXNR1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NSTCPVIAEK",
+            "name": "C++",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NSTDF1SVEC",
+            "name": "Visual DataFlex programozás ",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXSS1HBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NSVDEPHBEE",
+            "name": "Deklaratív programozás",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NSVKADHBEE",
+            "name": "Android programozás Kotlin nyelven",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NSVNSJHBEE",
+            "name": "Nagyvállalati szoftverfejlesztés Java alapon",
+            "kredit": "5",
+            "recommendedSemester": "7",
+            "syllabusId": "NBNEMI-AI-SZT",
+            "finished": null,
+            "preRequisites": [
+              "NIXPP1SBEE",
+              "NSXJW1HBEE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      }
+    ],
+    "subjects": [
+      {
+        "id": "GGXJA1HBEE",
+        "name": "Államigazgatási és jogi ismeretek ",
+        "kredit": "3",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "GGXKG1HBEE",
+        "name": "Makroökonómia",
+        "kredit": "2",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "GGXKG2HBEE",
+        "name": "Mikroökonómia",
+        "kredit": "2",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "GSXVG0HBEE",
+        "name": "Vállalkozás gazdaságtan ",
+        "kredit": "4",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "GVXME1HBEE",
+        "name": "Menedzsment alapjai",
+        "kredit": "3",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "KVEVI1HBEE",
+        "name": "Villamosságtan ",
+        "kredit": "5",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "KVXFI1HBEE",
+        "name": "Fizika",
+        "kredit": "5",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NMXAN1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIEEL0HBEE",
+        "name": "Elektronika ",
+        "kredit": "4",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIEIB0HBEE",
+        "name": "Informatikai biztonság ",
+        "kredit": "4",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIEOR1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIEOR1HBEE",
+        "name": "Operációs rendszerek ",
+        "kredit": "5",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXSH0HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIESA1HBEE",
+        "name": "Számítógép architektúrák alapjai ",
+        "kredit": "4",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXAB0HBEE",
+        "name": "Adatbázisok",
+        "kredit": "5",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXSF1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXBI1HBEE",
+        "name": "Bevezetés a informatikába",
+        "kredit": "4",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXDR0HBEE",
+        "name": "Digitális rendszerek",
+        "kredit": "5",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIEEL0HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXIR0HBEE",
+        "name": "Intelligens rendszerek",
+        "kredit": "3",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXKA1HBEE",
+        "name": "Korszeru számítógép architektúrák I.",
+        "kredit": "2",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIESA1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXKA2HBEE",
+        "name": "Korszeru számítógép architektúrák II.",
+        "kredit": "2",
+        "recommendedSemester": "7",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXKA1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXRE1HBEE",
+        "name": "Rendszerelmélet",
+        "kredit": "5",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NMXAN2HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSF1HBEE",
+        "name": "Szoftvertervezés és -fejlesztés I.",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSF2HBEE",
+        "name": "Szoftvertervezés és -fejlesztés II.",
+        "kredit": "6",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXSF1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSG1HBEE",
+        "name": "Szoftvertechnológia és grafikus felhasználói interfész tervezése",
+        "kredit": "5",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NSXHF1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSH0HBEE",
+        "name": "Számítógép hálózatok",
+        "kredit": "4",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXBI1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSS1HBEE",
+        "name": "Szakmai szigorlat",
+        "kredit": "0",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXDR0HBEE",
+          "NSXHF1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXVI0HBEE",
+        "name": "Vállalati információs rendszerek",
+        "kredit": "4",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXAB0HBEE",
+          "NMXVS1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXAN1HBEE",
+        "name": "Matematika I. - Analízis I.",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXAN2HBEE",
+        "name": "Analízis II.",
+        "kredit": "6",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NMXAN1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXDM1HBEE",
+        "name": "Diszkrét matematika és lineáris algebra I.",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXDM2HBEE",
+        "name": "Diszkrét matematika és lineáris algebra II.",
+        "kredit": "5",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NMXDM1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXVS1HBEE",
+        "name": "Valószínuségszámítás és matematikai statisztika",
+        "kredit": "5",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NMXAN2HBEE",
+          "NMXDM2HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNDSD1HBEE",
+        "name": "Szakdolgozat I.",
+        "kredit": "6",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NNPPR1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNDSD2HBEE",
+        "name": "Szakdolgozat II.",
+        "kredit": "9",
+        "recommendedSemester": "7",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NNDSD1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR1HBEE",
+        "name": "Projektmunka I.",
+        "kredit": "2",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXSS1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR2HBEE",
+        "name": "Projektmunka II.",
+        "kredit": "2",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NNPPR1HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR3HBEE",
+        "name": "Projektmunka III.",
+        "kredit": "2",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NNPPR2HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR4HBEE",
+        "name": "Projektmunka IV.",
+        "kredit": "2",
+        "recommendedSemester": "7",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NNPPR3HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNXIK2HBEE",
+        "name": "Infokommunikációs technikák",
+        "kredit": "2",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNXPA2HBEE",
+        "name": "Patronálás II.",
+        "kredit": "0",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNXPATHBEE",
+        "name": "Patronálás I.",
+        "kredit": "0",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NSXHF1HBEE",
+        "name": "Haladó fejlesztési technikák",
+        "kredit": "4",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXSF2HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NSXJW1HBEE",
+        "name": "Java alapú webfejlesztés",
+        "kredit": "3",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [
+          "NIXSF2HBEE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "SZAKNYBSCA",
+        "name": "Szaknyelv A",
+        "kredit": "2",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "SZAKNYBSCB",
+        "name": "Szaknyelv B",
+        "kredit": "2",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "TESTBSCE1",
+        "name": "Testnevelés I.",
+        "kredit": "0",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "TESTBSCE2",
+        "name": "Testnevelés II.",
+        "kredit": "0",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEMI",
+        "preRequisites": [],
+        "language": "Hungarian"
+      }
+    ]
+  },
+  {
+    "id": "NBNEUM",
+    "name": "Üzemmérnök-informatikus",
+    "length": "7",
+    "mustChoseCredit": "0",
+    "chosableCredit": "10",
+    "startingSpecSemester": "3",
+    "specialisations": [
+      {
+        "id": "NBNEUM-NN-KIB",
+        "name": "Kiberbiztonság",
+        "length": "4",
+        "mustChoseCredit": null,
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEUM",
+        "subjects": [
+          {
+            "id": "NIXHL1KBNE",
+            "name": "Hacker eszközök, technikák, logelemzés",
+            "kredit": "3",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEUM-NN-KIB",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXHT1KBNE",
+            "name": "Hálózati technológiák I.",
+            "kredit": "5",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEUM-NN-KIB",
+            "finished": null,
+            "preRequisites": [
+              "NIXSH0PBNE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIA1KBNE",
+            "name": "IT auditálás",
+            "kredit": "3",
+            "recommendedSemester": "3",
+            "syllabusId": "NBNEUM-NN-KIB",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIB1KBNE",
+            "name": "Intézményi informatikai biztonság",
+            "kredit": "6",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEUM-NN-KIB",
+            "finished": null,
+            "preRequisites": [
+              "NIXIS1KBNE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIS1KBNE",
+            "name": "Informatikai rendszerek és szolgáltatások biztonsága",
+            "kredit": "5",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEUM-NN-KIB",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXSH1KBNE",
+            "name": "Számítógép hálózatok és felhok biztonsága",
+            "kredit": "5",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEUM-NN-KIB",
+            "finished": null,
+            "preRequisites": [
+              "NIEIB0PBNE"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      },
+      {
+        "id": "NBNEUM-NN-SZTF",
+        "name": "Szoftverttervezés és fejlesztés ÜM",
+        "length": "4",
+        "mustChoseCredit": "11",
+        "chosableCredit": null,
+        "startingSpecSemester": null,
+        "parent": "NBNEUM",
+        "subjects": [
+          {
+            "id": "NIXAF1ZBNE",
+            "name": "Android alapú fejlesztés I.",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXAF2ZBNE",
+            "name": "Android alapú fejlesztés II.",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [
+              "NIXAF1ZBNE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXBP1SBNE",
+            "name": "Beágyazott eszközök programozása I.",
+            "kredit": "4",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIO1ZBNE",
+            "name": "iOS alapú fejlesztés",
+            "kredit": "4",
+            "recommendedSemester": "6",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [
+              "NIXAF1ZBNE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXIS1SBNE",
+            "name": "Informatikai rendszerek és szolgáltatások biztonsága",
+            "kredit": "5",
+            "recommendedSemester": "4",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [
+              "NIEIB0PBNE"
+            ],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXTE1SBNE",
+            "name": "Tesztelés",
+            "kredit": "4",
+            "recommendedSemester": "3",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [],
+            "language": "Hungarian"
+          },
+          {
+            "id": "NIXWF1ZBNE",
+            "name": "Web fejlesztés",
+            "kredit": "3",
+            "recommendedSemester": "5",
+            "syllabusId": "NBNEUM-NN-SZTF",
+            "finished": null,
+            "preRequisites": [
+              "HFT"
+            ],
+            "language": "Hungarian"
+          }
+        ]
+      }
+    ],
+    "subjects": [
+      {
+        "id": "GGXJA1SBNE",
+        "name": "Államigazgatási és jogi ismeretek *",
+        "kredit": "3",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "GSXVG0SBNE",
+        "name": "Vállalkozás gazdaságtan",
+        "kredit": "4",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "GVXME1SBNE",
+        "name": "Menedzsment alapjai",
+        "kredit": "3",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "HFT",
+        "name": "Haladó fejlesztési technikák",
+        "kredit": "4",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXSF2PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "JAVA",
+        "name": "Java alapú webfejlesztés",
+        "kredit": "3",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXSF2PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "KVXFI1PBNE",
+        "name": "Fizika",
+        "kredit": "5",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIEIB0PBNE",
+        "name": "Informatikai biztonság *",
+        "kredit": "5",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIEOR1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIEOR1PBNE",
+        "name": "Operációs rendszerek *",
+        "kredit": "6",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXSH0PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIESA1PBNE",
+        "name": "Számítógép architektúrák alapjai *",
+        "kredit": "6",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXBE1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXAB0PBNE",
+        "name": "Adatbázisok",
+        "kredit": "6",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXSF1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXBE1PBNE",
+        "name": "Beágyazott és érzékeloalapú rendszerek",
+        "kredit": "4",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXBI1PBNE",
+        "name": "Bevezetés a informatikába",
+        "kredit": "5",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXDR0PBNE",
+        "name": "Elektronika és digitális rendszerek alapjai *",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXIR0PBNE",
+        "name": "Intelligens rendszerek *",
+        "kredit": "4",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXDR0PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXRE1PBNE",
+        "name": "Rendszerelmélet ",
+        "kredit": "5",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXIR0PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSF1PBNE",
+        "name": "Szoftvertervezés és -fejlesztés I.",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSF2PBNE",
+        "name": "Szoftvertervezés és -fejlesztés II.",
+        "kredit": "6",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NIXSF1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSG1PBNE",
+        "name": "Szoftvertechnológia és grafikus felhasználói interfész tervezése",
+        "kredit": "6",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "HFT"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NIXSH0PBNE",
+        "name": "Számítógép hálózatok",
+        "kredit": "5",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXAN1HBNE",
+        "name": "Matematika I. - Analízis I.",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXDM1PBNE",
+        "name": "Diszkrét matematika és lineáris algebra I.",
+        "kredit": "6",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NMXDM2PBNE",
+        "name": "Diszkrét matematika és lineáris algebra II.",
+        "kredit": "6",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NMXDM1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNDSD1PBNE",
+        "name": "Szakdolgozat I.",
+        "kredit": "6",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNDSD2PBNE",
+        "name": "Szakdolgozat II.",
+        "kredit": "9",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NNDSD1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR1PBNE",
+        "name": "Projektmunka I.",
+        "kredit": "2",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR2PBNE",
+        "name": "Projektmunka II.",
+        "kredit": "2",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NNPPR1PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNPPR3PBNE",
+        "name": "Projektmunka III.",
+        "kredit": "4",
+        "recommendedSemester": "6",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [
+          "NNPPR2PBNE"
+        ],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNXIK1PBNE",
+        "name": "Infokommunikációs technikák",
+        "kredit": "3",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "NNXON1PBNE",
+        "name": "Önálló labor",
+        "kredit": "7",
+        "recommendedSemester": "5",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "PATRBSCE1",
+        "name": "Patronálás I.",
+        "kredit": "0",
+        "recommendedSemester": "1",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "PATRBSCE2",
+        "name": "Patronálás II.",
+        "kredit": "0",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "SZAKNYBPROFA",
+        "name": "Szaknyelv A",
+        "kredit": "2",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "SZAKNYBPROFB",
+        "name": "Szaknyelv B",
+        "kredit": "2",
+        "recommendedSemester": "4",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "TESTBPROFE1",
+        "name": "Testnevelés I.",
+        "kredit": "0",
+        "recommendedSemester": "2",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      },
+      {
+        "id": "TESTBPROFE2",
+        "name": "Testnevelés II.",
+        "kredit": "0",
+        "recommendedSemester": "3",
+        "syllabusId": "NBNEUM",
+        "preRequisites": [],
+        "language": "Hungarian"
+      }
+    ]
+  }
+]
