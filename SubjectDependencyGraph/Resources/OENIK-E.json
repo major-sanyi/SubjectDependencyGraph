@@ -3,16 +3,16 @@
     "id": "NBNEMI",
     "name": "Mérnökinformatikus",
     "length": "7",
-    "mustChoseCredit": "18",
-    "chosableCredit": "10",
+    "requiredMustChoseCredit": "18",
+    "requiredChosableCredit": "10",
     "startingSpecSemester": "4",
     "specialisations": [
       {
         "id": "NBNEMI-AI-BD",
         "name": "Big Data és üzleti intelligencia specializáció",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEMI",
         "subjects": [
@@ -23,7 +23,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-BD",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -33,7 +33,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-BD",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXKD1GBEE"
             ],
             "language": "Hungarian"
@@ -45,7 +45,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-BD",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXER1GBEE"
             ],
             "language": "Hungarian"
@@ -57,7 +57,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-BD",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXKD1GBEE"
             ],
             "language": "Hungarian"
@@ -69,7 +69,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-BD",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXVI0HBEE"
             ],
             "language": "Hungarian"
@@ -81,7 +81,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-BD",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXAB0HBEE"
             ],
             "language": "Hungarian"
@@ -92,8 +92,8 @@
         "id": "NBNEMI-AI-IOT",
         "name": "IOT, beágyazott rendszerek és robotika specializáció",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEMI",
         "subjects": [
@@ -104,7 +104,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXRE1HBEE"
             ],
             "language": "Hungarian"
@@ -116,7 +116,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NAXIT3IBEE"
             ],
             "language": "Hungarian"
@@ -128,7 +128,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NBXRT1IBEE"
             ],
             "language": "Hungarian"
@@ -140,7 +140,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NAXIT3IBEE"
             ],
             "language": "Hungarian"
@@ -152,7 +152,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXBP1IBEE"
             ],
             "language": "Hungarian"
@@ -164,7 +164,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXDR0HBEE"
             ],
             "language": "Hungarian"
@@ -176,7 +176,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXBE1IBEE"
             ],
             "language": "Hungarian"
@@ -188,7 +188,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-IOT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXBP1IBEE"
             ],
             "language": "Hungarian"
@@ -199,8 +199,8 @@
         "id": "NBNEMI-AI-IT",
         "name": "Felho szolgáltatási technológiák és IT biztonság specializáció",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEMI",
         "subjects": [
@@ -211,7 +211,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-IT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXFS1FBEE"
             ],
             "language": "Hungarian"
@@ -223,7 +223,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-IT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXVT1FBEE"
             ],
             "language": "Hungarian"
@@ -235,7 +235,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-IT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSH0HBEE"
             ],
             "language": "Hungarian"
@@ -247,7 +247,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-IT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIEIB0HBEE",
               "NIXHT1FBEE"
             ],
@@ -260,7 +260,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-IT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIEOR1HBEE"
             ],
             "language": "Hungarian"
@@ -271,8 +271,8 @@
         "id": "NBNEMI-AI-IT-A",
         "name": "Felho IT biztonság specializáció",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEMI",
         "subjects": [
@@ -283,7 +283,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-IT-A",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXIS1FBEE"
             ],
             "language": "Hungarian"
@@ -295,7 +295,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-IT-A",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIEIB0HBEE"
             ],
             "language": "Hungarian"
@@ -306,8 +306,8 @@
         "id": "NBNEMI-AI-IT-B",
         "name": "Felho hálózati specializáció",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEMI",
         "subjects": [
@@ -318,7 +318,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-IT-B",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXFS1FBEE",
               "NIXHT2FBEE"
             ],
@@ -331,7 +331,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-IT-B",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXHT1FBEE"
             ],
             "language": "Hungarian"
@@ -342,8 +342,8 @@
         "id": "NBNEMI-AI-SZT",
         "name": "Szoftvertervezés és -fejlesztés specializáció",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEMI",
         "subjects": [
@@ -354,7 +354,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -364,7 +364,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSG1HBEE"
             ],
             "language": "Hungarian"
@@ -376,7 +376,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NSXHF1HBEE"
             ],
             "language": "Hungarian"
@@ -388,7 +388,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NAIDP1SVED"
             ],
             "language": "Hungarian"
@@ -400,7 +400,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -412,7 +412,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -424,7 +424,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -436,7 +436,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE"
             ],
             "language": "Hungarian"
@@ -448,7 +448,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -460,7 +460,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -472,7 +472,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXAP1SBEE"
             ],
             "language": "Hungarian"
@@ -484,7 +484,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXNR1SBEE"
             ],
             "language": "Hungarian"
@@ -496,7 +496,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE"
             ],
             "language": "Hungarian"
@@ -508,7 +508,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE"
             ],
             "language": "Hungarian"
@@ -520,7 +520,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE"
             ],
             "language": "Hungarian"
@@ -532,7 +532,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE",
               "NSXJW1HBEE"
             ],
@@ -545,7 +545,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NSXHF1HBEE"
             ],
             "language": "Hungarian"
@@ -557,7 +557,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXKA1SBEE"
             ],
             "language": "Hungarian"
@@ -569,7 +569,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NSXHF1HBEE"
             ],
             "language": "Hungarian"
@@ -581,7 +581,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NSXHF1HBEE"
             ],
             "language": "Hungarian"
@@ -593,7 +593,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NSXHF1HBEE"
             ],
             "language": "Hungarian"
@@ -605,7 +605,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXNR1SBEE"
             ],
             "language": "Hungarian"
@@ -617,7 +617,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -629,7 +629,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSS1HBEE"
             ],
             "language": "Hungarian"
@@ -641,7 +641,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE"
             ],
             "language": "Hungarian"
@@ -653,7 +653,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE"
             ],
             "language": "Hungarian"
@@ -665,7 +665,7 @@
             "recommendedSemester": "7",
             "syllabusId": "NBNEMI-AI-SZT",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXPP1SBEE",
               "NSXJW1HBEE"
             ],
@@ -681,7 +681,7 @@
         "kredit": "3",
         "recommendedSemester": "6",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -690,7 +690,7 @@
         "kredit": "2",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -699,7 +699,7 @@
         "kredit": "2",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -708,7 +708,7 @@
         "kredit": "4",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -717,7 +717,7 @@
         "kredit": "3",
         "recommendedSemester": "5",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -726,7 +726,7 @@
         "kredit": "5",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -735,7 +735,7 @@
         "kredit": "5",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NMXAN1HBEE"
         ],
         "language": "Hungarian"
@@ -746,7 +746,7 @@
         "kredit": "4",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -755,7 +755,7 @@
         "kredit": "4",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIEOR1HBEE"
         ],
         "language": "Hungarian"
@@ -766,7 +766,7 @@
         "kredit": "5",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSH0HBEE"
         ],
         "language": "Hungarian"
@@ -777,7 +777,7 @@
         "kredit": "4",
         "recommendedSemester": "5",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -786,7 +786,7 @@
         "kredit": "5",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF1HBEE"
         ],
         "language": "Hungarian"
@@ -797,7 +797,7 @@
         "kredit": "4",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -806,7 +806,7 @@
         "kredit": "5",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIEEL0HBEE"
         ],
         "language": "Hungarian"
@@ -817,7 +817,7 @@
         "kredit": "3",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -826,7 +826,7 @@
         "kredit": "2",
         "recommendedSemester": "6",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIESA1HBEE"
         ],
         "language": "Hungarian"
@@ -837,7 +837,7 @@
         "kredit": "2",
         "recommendedSemester": "7",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXKA1HBEE"
         ],
         "language": "Hungarian"
@@ -848,7 +848,7 @@
         "kredit": "5",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NMXAN2HBEE"
         ],
         "language": "Hungarian"
@@ -859,7 +859,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -868,7 +868,7 @@
         "kredit": "6",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF1HBEE"
         ],
         "language": "Hungarian"
@@ -879,7 +879,7 @@
         "kredit": "5",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NSXHF1HBEE"
         ],
         "language": "Hungarian"
@@ -890,7 +890,7 @@
         "kredit": "4",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXBI1HBEE"
         ],
         "language": "Hungarian"
@@ -901,7 +901,7 @@
         "kredit": "0",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXDR0HBEE",
           "NSXHF1HBEE"
         ],
@@ -913,7 +913,7 @@
         "kredit": "4",
         "recommendedSemester": "5",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXAB0HBEE",
           "NMXVS1HBEE"
         ],
@@ -925,7 +925,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -934,7 +934,7 @@
         "kredit": "6",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NMXAN1HBEE"
         ],
         "language": "Hungarian"
@@ -945,7 +945,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -954,7 +954,7 @@
         "kredit": "5",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NMXDM1HBEE"
         ],
         "language": "Hungarian"
@@ -965,7 +965,7 @@
         "kredit": "5",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NMXAN2HBEE",
           "NMXDM2HBEE"
         ],
@@ -977,7 +977,7 @@
         "kredit": "6",
         "recommendedSemester": "6",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNPPR1HBEE"
         ],
         "language": "Hungarian"
@@ -988,7 +988,7 @@
         "kredit": "9",
         "recommendedSemester": "7",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNDSD1HBEE"
         ],
         "language": "Hungarian"
@@ -999,7 +999,7 @@
         "kredit": "2",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSS1HBEE"
         ],
         "language": "Hungarian"
@@ -1010,7 +1010,7 @@
         "kredit": "2",
         "recommendedSemester": "5",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNPPR1HBEE"
         ],
         "language": "Hungarian"
@@ -1021,7 +1021,7 @@
         "kredit": "2",
         "recommendedSemester": "6",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNPPR2HBEE"
         ],
         "language": "Hungarian"
@@ -1032,7 +1032,7 @@
         "kredit": "2",
         "recommendedSemester": "7",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNPPR3HBEE"
         ],
         "language": "Hungarian"
@@ -1043,7 +1043,7 @@
         "kredit": "2",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1052,7 +1052,7 @@
         "kredit": "0",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1061,7 +1061,7 @@
         "kredit": "0",
         "recommendedSemester": "1",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1070,7 +1070,7 @@
         "kredit": "4",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF2HBEE"
         ],
         "language": "Hungarian"
@@ -1081,7 +1081,7 @@
         "kredit": "3",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF2HBEE"
         ],
         "language": "Hungarian"
@@ -1092,7 +1092,7 @@
         "kredit": "2",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1101,7 +1101,7 @@
         "kredit": "2",
         "recommendedSemester": "4",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1110,7 +1110,7 @@
         "kredit": "0",
         "recommendedSemester": "2",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1119,7 +1119,7 @@
         "kredit": "0",
         "recommendedSemester": "3",
         "syllabusId": "NBNEMI",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       }
     ]
@@ -1128,16 +1128,16 @@
     "id": "NBNEUM",
     "name": "Üzemmérnök-informatikus",
     "length": "7",
-    "mustChoseCredit": "0",
-    "chosableCredit": "10",
+    "requiredMustChoseCredit": "0",
+    "requiredChosableCredit": "10",
     "startingSpecSemester": "3",
     "specialisations": [
       {
         "id": "NBNEUM-NN-KIB",
         "name": "Kiberbiztonság",
         "length": "4",
-        "mustChoseCredit": null,
-        "chosableCredit": null,
+        "requiredMustChoseCredit": null,
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEUM",
         "subjects": [
@@ -1148,7 +1148,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEUM-NN-KIB",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -1158,7 +1158,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEUM-NN-KIB",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXSH0PBNE"
             ],
             "language": "Hungarian"
@@ -1170,7 +1170,7 @@
             "recommendedSemester": "3",
             "syllabusId": "NBNEUM-NN-KIB",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -1180,7 +1180,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEUM-NN-KIB",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXIS1KBNE"
             ],
             "language": "Hungarian"
@@ -1192,7 +1192,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEUM-NN-KIB",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -1202,7 +1202,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEUM-NN-KIB",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIEIB0PBNE"
             ],
             "language": "Hungarian"
@@ -1213,8 +1213,8 @@
         "id": "NBNEUM-NN-SZTF",
         "name": "Szoftverttervezés és fejlesztés ÜM",
         "length": "4",
-        "mustChoseCredit": "11",
-        "chosableCredit": null,
+        "requiredMustChoseCredit": "11",
+        "requiredChosableCredit": null,
         "startingSpecSemester": null,
         "parent": "NBNEUM",
         "subjects": [
@@ -1225,7 +1225,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -1235,7 +1235,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXAF1ZBNE"
             ],
             "language": "Hungarian"
@@ -1247,7 +1247,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -1257,7 +1257,7 @@
             "recommendedSemester": "6",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIXAF1ZBNE"
             ],
             "language": "Hungarian"
@@ -1269,7 +1269,7 @@
             "recommendedSemester": "4",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "NIEIB0PBNE"
             ],
             "language": "Hungarian"
@@ -1281,7 +1281,7 @@
             "recommendedSemester": "3",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [],
+            "preRequisiteSubjects": [],
             "language": "Hungarian"
           },
           {
@@ -1291,7 +1291,7 @@
             "recommendedSemester": "5",
             "syllabusId": "NBNEUM-NN-SZTF",
             "finished": null,
-            "preRequisites": [
+            "preRequisiteSubjects": [
               "HFT"
             ],
             "language": "Hungarian"
@@ -1306,7 +1306,7 @@
         "kredit": "3",
         "recommendedSemester": "6",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1315,7 +1315,7 @@
         "kredit": "4",
         "recommendedSemester": "4",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1324,7 +1324,7 @@
         "kredit": "3",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1333,7 +1333,7 @@
         "kredit": "4",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF2PBNE"
         ],
         "language": "Hungarian"
@@ -1344,7 +1344,7 @@
         "kredit": "3",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF2PBNE"
         ],
         "language": "Hungarian"
@@ -1355,7 +1355,7 @@
         "kredit": "5",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1364,7 +1364,7 @@
         "kredit": "5",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIEOR1PBNE"
         ],
         "language": "Hungarian"
@@ -1375,7 +1375,7 @@
         "kredit": "6",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSH0PBNE"
         ],
         "language": "Hungarian"
@@ -1386,7 +1386,7 @@
         "kredit": "6",
         "recommendedSemester": "5",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXBE1PBNE"
         ],
         "language": "Hungarian"
@@ -1397,7 +1397,7 @@
         "kredit": "6",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF1PBNE"
         ],
         "language": "Hungarian"
@@ -1408,7 +1408,7 @@
         "kredit": "4",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1417,7 +1417,7 @@
         "kredit": "5",
         "recommendedSemester": "1",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1426,7 +1426,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1435,7 +1435,7 @@
         "kredit": "4",
         "recommendedSemester": "4",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXDR0PBNE"
         ],
         "language": "Hungarian"
@@ -1446,7 +1446,7 @@
         "kredit": "5",
         "recommendedSemester": "6",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXIR0PBNE"
         ],
         "language": "Hungarian"
@@ -1457,7 +1457,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1466,7 +1466,7 @@
         "kredit": "6",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NIXSF1PBNE"
         ],
         "language": "Hungarian"
@@ -1477,7 +1477,7 @@
         "kredit": "6",
         "recommendedSemester": "4",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "HFT"
         ],
         "language": "Hungarian"
@@ -1488,7 +1488,7 @@
         "kredit": "5",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1497,7 +1497,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1506,7 +1506,7 @@
         "kredit": "6",
         "recommendedSemester": "1",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1515,7 +1515,7 @@
         "kredit": "6",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NMXDM1PBNE"
         ],
         "language": "Hungarian"
@@ -1526,7 +1526,7 @@
         "kredit": "6",
         "recommendedSemester": "5",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1535,7 +1535,7 @@
         "kredit": "9",
         "recommendedSemester": "6",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNDSD1PBNE"
         ],
         "language": "Hungarian"
@@ -1546,7 +1546,7 @@
         "kredit": "2",
         "recommendedSemester": "4",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1555,7 +1555,7 @@
         "kredit": "2",
         "recommendedSemester": "5",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNPPR1PBNE"
         ],
         "language": "Hungarian"
@@ -1566,7 +1566,7 @@
         "kredit": "4",
         "recommendedSemester": "6",
         "syllabusId": "NBNEUM",
-        "preRequisites": [
+        "preRequisiteSubjects": [
           "NNPPR2PBNE"
         ],
         "language": "Hungarian"
@@ -1577,7 +1577,7 @@
         "kredit": "3",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1586,7 +1586,7 @@
         "kredit": "7",
         "recommendedSemester": "5",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1595,7 +1595,7 @@
         "kredit": "0",
         "recommendedSemester": "1",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1604,7 +1604,7 @@
         "kredit": "0",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1613,7 +1613,7 @@
         "kredit": "2",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1622,7 +1622,7 @@
         "kredit": "2",
         "recommendedSemester": "4",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1631,7 +1631,7 @@
         "kredit": "0",
         "recommendedSemester": "2",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       },
       {
@@ -1640,7 +1640,7 @@
         "kredit": "0",
         "recommendedSemester": "3",
         "syllabusId": "NBNEUM",
-        "preRequisites": [],
+        "preRequisiteSubjects": [],
         "language": "Hungarian"
       }
     ]

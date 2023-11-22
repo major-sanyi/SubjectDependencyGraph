@@ -1,0 +1,25 @@
+﻿@using SubjectDependencyGraph.Models;
+<h3>Syllabus</h3>
+
+
+<div class="tree-box card-deck">
+    <div class="tree-box tree-box--first">
+        @foreach (var subjectGroup in SyllabusParam.Subjects.Concat( SyllabusParam.Specialisations.First().Subjects).GroupBy(key => key.RecommendedSemester).OrderBy(x => x.Key))
+        {
+            <div class="tree-box tree-box--second">
+                @foreach (var subject in subjectGroup)
+                {
+                    <SubjectComponent SubjectParam="subject" IsSpecialisation="subject.SyllabusId!=SyllabusParam.Id"></SubjectComponent>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<h5>Count</h5>
+
+<div>@SyllabusParam.Subjects.Count</div>
+@code {
+    [Parameter]
+    public Syllabus SyllabusParam { get; set; } = new Syllabus("Mocked ID", "Name", "0", "0", "0", "0");
+}
