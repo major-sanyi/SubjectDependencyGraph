@@ -1,0 +1,46 @@
+﻿@page "/subjects"
+@using SubjectDependencyGraph.Blazor.PageComponents
+@using SubjectDependencyGraph.Shared.Models
+@using SubjectDependencyGraph.Shared.Services
+@inject ISyllabiService SyllabiService
+
+<!-- We need solution that might not querys everytime-->
+<MudSelect T="Syllabus" @bind-Value=selectedSyllabus Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
+    @foreach (var item in syllabi ?? [])
+    {
+        <MudSelectItem Value="@item">@item</MudSelectItem>
+    }
+</MudSelect>
+
+<MudSelect T="string" MultiSelection="true" Label="Specs" @bind-SelectedValues=selectedSpecs>
+    @foreach (var item in specialisations ?? [])
+    {
+        <MudSelectItem Value="@item.Id">@item.ToString()</MudSelectItem>
+    }
+</MudSelect>
+
+<SubjectListComponent Subjects="subjects" />
+
+@code {
+
+    private IReadOnlyList<Syllabus>? syllabi { get; set; }
+    private Syllabus? selectedSyllabus { get; set; }
+    private IEnumerable<Specialisation> specialisations
+    {
+        get
+        {
+            selectedSpecs = new HashSet<string>();
+            return selectedSyllabus?.Specialisations ?? [];
+        }
+    }
+
+    private IEnumerable<string> selectedSpecs = new HashSet<string>();
+    private IReadOnlyDictionary<Subject, Boolean> subjects => selectedSyllabus?.GetSubjectsWithSpecMarked(selectedSpecs.ToArray())??new Dictionary<Subject,bool>();
+
+    protected override void OnInitialized()
+    {
+        syllabi = SyllabiService.Syllabi;
+        selectedSyllabus=syllabi?[0];
+        base.OnInitialized();
+    }
+}

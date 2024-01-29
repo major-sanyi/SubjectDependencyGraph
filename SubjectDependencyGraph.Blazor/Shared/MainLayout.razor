@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
+<div class="page">
+    <main>
+        <MudTabs ActivePanelIndexChanged="IndexChanged" Elevation="4" Rounded="true" Color="@Color.Primary">
+            <MudTabPanel Text="Hello" />
+            <MudTabPanel Text="Two" />
+            <MudTabPanel Text="Three" />
+        </MudTabs>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+@code {
+
+
+    private void IndexChanged(int index)
+    {
+        Navigation.NavigateTo(_routingTable[index]);
+    }
+    private Dictionary<int, string> _routingTable = new Dictionary<int, string>()
+    {
+        { 0, "/" },
+        { 1, "/syllabi" },
+        { 2, "/subjects" }
+    };
+}

@@ -1,0 +1,26 @@
+﻿@using SubjectDependencyGraph.Shared.Models;
+
+<MudPaper Class="pa-4">
+    <MudStack Row="true">
+        <MudAvatar Size="Size.Large" Color="Color.Primary" >@SubjectParam.Kredit</MudAvatar>
+        <MudStack Justify="Justify.Center" Spacing="0">
+            <MudText Typo="Typo.body1">@SubjectParam.Id</MudText>
+                <MudText Typo="Typo.body2">@SubjectParam.Name</MudText>
+        </MudStack>
+    </MudStack>
+</MudPaper>
+
+
+@code {
+    [Parameter]
+    public Subject SubjectParam { get; set; } = new Subject("Mocked Id", "MockedName", 0, 0, "Mocked Language");
+
+    [Parameter]
+    public bool IsSpecialisation { get; set; } = false;
+    public void OnClick()
+    {
+        SubjectParam.Finished = !SubjectParam.Finished;
+    }
+
+    private string finishedSpecColorClass => SubjectParam.Finished ? (IsSpecialisation ? "finished--spec" : "finished") : IsSpecialisation ? "not-finished--spec" : "not-finished";
+}

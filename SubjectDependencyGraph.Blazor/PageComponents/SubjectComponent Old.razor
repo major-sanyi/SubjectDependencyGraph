@@ -1,0 +1,34 @@
+﻿@using SubjectDependencyGraph.Shared.Models;
+
+<div class="card subject-card @finishedSpecColorClass" @onclick="OnClick">
+    <div class="card-body">
+            <h6 class="card-subtitle">@SubjectParam.Id</h6>
+            <h5 class="card-title">@SubjectParam.Name</h5>
+        @if (SubjectParam.PreRequisiteSubjects.Any())
+        {
+            <div class="card-text">
+                    <label>Előkövetelmények:</label>
+                <p class="prereq-list">
+                    @foreach (string prereq in SubjectParam.PreRequisiteSubjects)
+                    {
+                        <div class="prereq">@prereq</div>
+                    }
+                </p>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Subject SubjectParam { get; set; } = new Subject("Mocked Id", "MockedName", 0, 0, "Mocked Language");
+
+    [Parameter]
+    public bool IsSpecialisation { get; set; } = false;
+    public void OnClick()
+    {
+        SubjectParam.Finished = !SubjectParam.Finished;
+    }
+
+    private string finishedSpecColorClass => SubjectParam.Finished ? (IsSpecialisation ? "finished--spec" : "finished") : IsSpecialisation ? "not-finished--spec" : "not-finished";
+}

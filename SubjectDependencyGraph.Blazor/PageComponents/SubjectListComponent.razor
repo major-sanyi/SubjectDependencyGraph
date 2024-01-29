@@ -1,0 +1,21 @@
+﻿@using SubjectDependencyGraph.Shared.Models;
+
+<MudStack Row="true">
+    @foreach (var subjectGroup in Subjects.GroupBy(subject => subject.Key.RecommendedSemester).OrderBy(x => x.Key))
+    {
+        <MudStack>
+            @foreach (var subject in subjectGroup)
+            {
+                <SubjectComponent SubjectParam="subject.Key" IsSpecialisation="subject.Value"></SubjectComponent>
+            }
+        </MudStack>
+    }
+</MudStack>
+
+@code {
+    [Parameter]
+    public IReadOnlyDictionary<Subject, Boolean> Subjects { get; set; } = new Dictionary<Subject, Boolean>();
+
+    [Parameter]
+    public string[] SelectedSpecs{ get; set; } = [];
+}
