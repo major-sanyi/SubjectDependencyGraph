@@ -74,15 +74,40 @@ namespace SubjectDependencyGraph.Shared.Resources {
         ///        &quot;id&quot;: &quot;NBNEMI-AI-BD&quot;,
         ///        &quot;name&quot;: &quot;Big Data és üzleti intelligencia specializáció&quot;,
         ///        &quot;length&quot;: 4,
-        ///        &quot;requiredMustChoseCredit&quot;: null,
-        ///        &quot;requiredChosableCredit&quot;: null,
-        ///        &quot;startingSpecSemester&quot;: null,
         ///        &quot;parent&quot;: &quot;NBNEMI&quot;,
-        ///        &quot;subjects&quot;: [ [rest of string was truncated]&quot;;.
+        ///        &quot;subjects&quot;: [
+        ///          {
+        ///            &quot;id&quot;: &quot;GGXVP1GBEE&quot;,
+        ///            &quot;name&quot;: &quot;Vállalkozások pénzügyei, számvitel alapjai &quot;,
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
         public static string OENIK_E {
             get {
                 return ResourceManager.GetString("OENIK-E", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;FromSyllabus&quot;: &quot;NBNEMI&quot;,
+        ///    &quot;ToSyllabus&quot;: &quot;NBNEUM&quot;,
+        ///    &quot;Subjects&quot;: {
+        ///      &quot;GGXJA1SBNE&quot;: [ &quot;GGXJA1HBEE&quot; ],
+        ///      &quot;GVXME1SBNE&quot;: [ &quot;GVXME1HBEE&quot; ],
+        ///      &quot;KVXFI1PBNE&quot;: [ &quot;KVXFI1HBEE&quot; ],
+        ///      &quot;NIXDR0PBNE&quot;: [ &quot;NIXDR0HBEE&quot;, &quot;NIEEL0HBEE&quot; ],
+        ///      &quot;NIEIB0PBNE&quot;: [ &quot;NIEIB0HBEE&quot; ],
+        ///      &quot;NIEOR1PBNE&quot;: [ &quot;NIEOR1HBEE&quot; ],
+        ///      &quot;NIESA1PBNE&quot;: [ &quot;NIESA1HBEE&quot; ],
+        ///      &quot;NIXAB0PBNE&quot;: [ &quot;NIXAB0HBEE&quot; ],
+        ///      &quot;NIXBE1PBNE&quot;: [ &quot;NIXBE1IBEE&quot; ],
+        ///      &quot;NIXBI1PBNE&quot;: [ &quot;NIXBI1HBEE&quot; ],
+        ///      &quot;NIXBP1SBNE&quot;: [ [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string OENIK_E_equals {
+            get {
+                return ResourceManager.GetString("OENIK_E_equals", resourceCulture);
             }
         }
     }

@@ -5,8 +5,9 @@
     <main>
         <MudTabs ActivePanelIndexChanged="IndexChanged" Elevation="4" Rounded="true" Color="@Color.Primary">
             <MudTabPanel Text="Hello" />
-            <MudTabPanel Text="Two" />
-            <MudTabPanel Text="Three" />
+            <MudTabPanel Text="syllabi list" />
+            <MudTabPanel Text="Subjects" />
+            <MudTabPanel Text="Equvalence" />
         </MudTabs>
         <article class="content px-4">
             @Body
@@ -27,6 +28,7 @@
     {
         { 0, "/" },
         { 1, "/syllabi" },
-        { 2, "/subjects" }
+        { 2, "/subjects" },
+        {3,"/equallist"}
     };
 }

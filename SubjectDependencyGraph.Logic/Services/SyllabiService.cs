@@ -16,30 +16,35 @@ namespace SubjectDependencyGraph.Shared.Services
         public IReadOnlyList<Specialisation> Specialisations => SelectedSyllabus.Specialisations;
 
         /// <inheritdoc/>
+        public IReadOnlyList<EqualTable> EqualityTables { get; private set; }
+
+        /// <inheritdoc/>
         public Syllabus SelectedSyllabus { get; private set; }
 
         /// <inheritdoc/>
         public IReadOnlyList<Specialisation> SelectedSpecialisations => _selectedSpecialisations;
 
         private readonly static List<Syllabus> defaultSyllabi = JsonConvert.DeserializeObject<List<Syllabus>>(Resources.Resource.OENIK_E) ?? [];
+        // Needs rework lol
+        private readonly static List<EqualTableDto> defaultEquals = JsonConvert.DeserializeObject<List<EqualTableDto>>(Resources.Resource.OENIK_E_equals) ?? [];
 
         private readonly List<Syllabus> _syllabi;
         private List<Specialisation> _selectedSpecialisations;
 
         /// <inheritdoc/>
-        public SyllabiService() : this(defaultSyllabi)
+        public SyllabiService() : this(defaultSyllabi, defaultEquals)
         {
 
         }
 
         /// <inheritdoc/>
-        public SyllabiService(Dictionary<string, List<string>> completedSubjects) : this(defaultSyllabi, completedSubjects)
+        public SyllabiService(Dictionary<string, List<string>> completedSubjects) : this(defaultSyllabi, defaultEquals, completedSubjects)
         {
 
         }
 
         /// <inheritdoc/>
-        public SyllabiService(List<Syllabus> avalaibleSyllabi, Dictionary<string, List<string>>? completedSubjects = null)
+        public SyllabiService(List<Syllabus> avalaibleSyllabi, List<EqualTableDto> equalTables, Dictionary<string, List<string>>? completedSubjects = null)
         {
             _syllabi = avalaibleSyllabi;
             SelectedSyllabus = _syllabi[0];
@@ -63,6 +68,7 @@ namespace SubjectDependencyGraph.Shared.Services
                     }
                 }
             }
+            EqualityTables = equalTables.Select(x => new EqualTable(x, _syllabi)).ToList();
         }
 
         /// <inheritdoc/>

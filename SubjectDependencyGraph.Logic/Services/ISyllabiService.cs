@@ -28,6 +28,11 @@ namespace SubjectDependencyGraph.Shared.Services
         IReadOnlyList<Syllabus> Syllabi { get; }
 
         /// <summary>
+        /// Gets the list of Equality tables.
+        /// </summary>
+        IReadOnlyList<EqualTable> EqualityTables { get; }
+
+        /// <summary>
         /// Adds a new syllabus.
         /// </summary>
         /// <param name="syllabus">The syllabus to add.</param>

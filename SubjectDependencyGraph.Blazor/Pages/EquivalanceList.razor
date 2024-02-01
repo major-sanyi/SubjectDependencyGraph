@@ -1,0 +1,25 @@
+﻿@page "/equallist"
+@using SubjectDependencyGraph.Shared.Models
+@using SubjectDependencyGraph.Shared.Services
+@inject ISyllabiService SyllabiService
+
+
+<PageTitle>Eqvivalance</PageTitle>
+<MudSelect T="EqualTable" @bind-Value="@selectedTable" Label="Equal Table" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+    @foreach (var item in equalTables ?? [])
+    {
+        <MudSelectItem T="EqualTable" Value="@item" />
+    }
+</MudSelect>
+<SubjectDependencyGraph.Blazor.PageComponents.EquivalenceTableComponent equalTable="selectedTable" ></SubjectDependencyGraph.Blazor.PageComponents.EquivalenceTableComponent>
+
+@code {
+    private IReadOnlyList<EqualTable>? equalTables { get; set; }
+    private EqualTable? selectedTable { get; set; }
+    protected override void OnInitialized()
+    {
+        equalTables = SyllabiService.EqualityTables;
+        selectedTable = equalTables[0];
+        base.OnInitialized();
+    }
+}

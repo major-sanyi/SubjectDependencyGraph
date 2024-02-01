@@ -1,26 +1,124 @@
 ﻿@using SubjectDependencyGraph.Shared.Models;
 
-<MudPaper Class="pa-4">
+<MudPaper Class="pa-4 ma-2" Elevation="4" @onclick="OnClick" @onmouseenter="HighlightStart" @onmouseleave="HighlightEnds">
     <MudStack Row="true">
-        <MudAvatar Size="Size.Large" Color="Color.Primary" >@SubjectParam.Kredit</MudAvatar>
-        <MudStack Justify="Justify.Center" Spacing="0">
-            <MudText Typo="Typo.body1">@SubjectParam.Id</MudText>
-                <MudText Typo="Typo.body2">@SubjectParam.Name</MudText>
+        <MudAvatar Size="Size.Large" Color="GetColor">@SubjectParam?.Kredit</MudAvatar>
+            <MudStack Justify="Justify.Center" Spacing="0">
+                <MudText Typo="Typo.body1">@SubjectParam?.Id</MudText>
+                <MudText Typo="Typo.body2">@SubjectParam?.Name</MudText>
+            </MudStack>
         </MudStack>
-    </MudStack>
+        @if (ShowPreReq && (PreReqs?.Any() ?? false))
+    {
+        <MudTreeView T="string">
+            <MudTreeViewItem Icon="@Icons.Material.Filled.Subject" Value='"Prerequistes"'>
+                @foreach (var item in PreReqs)
+                {
+                    <MudTreeViewItem Value="item.ToString()" Icon="@GetPreReqIcon(item.Finished)" IconColor="GetPreReqColor(item.Finished)" />
+                }
+            </MudTreeViewItem>
+        </MudTreeView>
+    }
 </MudPaper>
 
 
 @code {
+
     [Parameter]
-    public Subject SubjectParam { get; set; } = new Subject("Mocked Id", "MockedName", 0, 0, "Mocked Language");
+    public Subject? SubjectParam { get; set; }
 
     [Parameter]
     public bool IsSpecialisation { get; set; } = false;
-    public void OnClick()
+
+    [Parameter]
+    public bool ShowPreReq { get; set; } = true;
+
+
+    protected override void OnParametersSet()
     {
-        SubjectParam.Finished = !SubjectParam.Finished;
+        base.OnParametersSet();
+        if (SubjectParam is not null)
+        {
+            foreach (var item in PreReqs ?? [])
+            {
+                item.FinishedChanged += StateHasChanged;
+                item.HighlightChanged += StateHasChanged;
+            }
+            this.SubjectParam.HighlightChanged += StateHasChanged;
+        }
     }
 
-    private string finishedSpecColorClass => SubjectParam.Finished ? (IsSpecialisation ? "finished--spec" : "finished") : IsSpecialisation ? "not-finished--spec" : "not-finished";
+    private IReadOnlyList<Subject>? PreReqs
+    {
+        get
+        {
+            return SubjectParam?.PreRequisiteSubjectsSolved;
+        }
+    }
+
+    public void OnClick(MouseEventArgs args)
+    {
+        if (SubjectParam is not null)
+            if (!SubjectParam.Finished)
+            {
+                if ((!PreReqs?.Any(x => !x.Finished) ?? true) || args.ShiftKey)
+                    SubjectParam.Finished = !SubjectParam.Finished;
+            }
+            else
+            {
+                SubjectParam.Finished = false;
+            }
+    }
+    private string GetPreReqIcon(bool isFinished)
+    {
+        return isFinished ? Icons.Material.Filled.Done : Icons.Material.Filled.Dangerous;
+    }
+    private Color GetPreReqColor(bool isFinished)
+    {
+        return isFinished ? Color.Success : Color.Error;
+    }
+    private void HighlightStart()
+    {
+        SubjectParam?.HighLightStart();
+    }
+    private void HighlightEnds()
+    {
+        SubjectParam?.HighLightEnd();
+    }
+    private Color GetColor
+    {
+        get
+        {
+            if (SubjectParam?.Finished ?? false)
+            {
+                if (SubjectParam.Highlighted)
+                {
+                    return Color.Tertiary;
+                }
+                else if (IsSpecialisation)
+                {
+                    return Color.Tertiary;
+                }
+                else
+                {
+                    return Color.Info;
+                }
+            }
+            else
+            {
+                if (SubjectParam?.Highlighted ?? false)
+                {
+                    return Color.Error;
+                }
+                else if (IsSpecialisation)
+                {
+                    return Color.Secondary;
+                }
+                else
+                {
+                    return Color.Primary;
+                }
+            }
+        }
+    }
 }

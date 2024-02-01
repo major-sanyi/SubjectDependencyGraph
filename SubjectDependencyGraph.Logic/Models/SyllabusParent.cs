@@ -46,11 +46,12 @@
             return $"{Name} - {Id}";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object? obj)
         {
             return Id.Equals(obj);
         }
-
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             return Id.GetHashCode() ^ Name.GetHashCode();

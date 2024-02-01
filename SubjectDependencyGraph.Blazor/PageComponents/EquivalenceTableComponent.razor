@@ -1,0 +1,34 @@
+﻿@using SubjectDependencyGraph.Shared.Models
+@using System.Text
+<MudDataGrid Items="@equalTable?.Subjects" Filterable="false" SortMode="@SortMode.None" Groupable="false">
+    <Columns>
+        <TemplateColumn Title="Required Subject(s)">
+            <CellTemplate>
+                <MudStack Row>
+                    @foreach (var subject in @context.Item.Value)
+                    {
+                        <MudPaper><MudText>@subject</MudText></MudPaper>
+                    }
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+        <TemplateColumn Title="Required Subject(s) Kredit">
+            <CellTemplate>
+                <MudStack Row>
+                    @foreach (var subject in @context.Item.Value)
+                    {
+                        <MudPaper><MudText>@subject.Kredit</MudText></MudPaper>
+                    }
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+        <PropertyColumn Property="x => x.Key" Title="Wanted Subject" />
+        <PropertyColumn Property="x => x.Key.Kredit" Title="Wanted Subject Kredit" />
+    </Columns>
+</MudDataGrid>
+
+@code {
+
+    [Parameter]
+    public EqualTable? equalTable { get; set; }
+}

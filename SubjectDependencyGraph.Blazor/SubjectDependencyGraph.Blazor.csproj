@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Github\**" />
+    <Content Remove="Github\**" />
+    <EmbeddedResource Remove="Github\**" />
+    <None Remove="Github\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Remove="Resources\AppStrings.hu.resx" />
   </ItemGroup>
 

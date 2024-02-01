@@ -45,6 +45,7 @@
             RequiredChosableCredit = requiredChosableCredit;
             StartingSpecSemester = startingSpecSemester;
             Specialisations = specialisations ?? [];
+            ResolveSubjectPreReq();
         }
 
         /// <summary>
@@ -73,6 +74,16 @@
         public IReadOnlyDictionary<Subject, bool> GetSubjectsWithSpecMarked(string[] selectedSpecs)
         {
             return GetAllSubjectsMarked(selectedSpecs);
+        }
+
+        private void ResolveSubjectPreReq()
+        {
+            List<Subject> subjects = GetAllSubjectsMarked().Select(x => x.Key).ToList();
+            foreach (var subject in subjects)
+            {
+                IEnumerable<Subject> preReqs = subjects.Where(x => subject.PreRequisiteSubjects.Contains(x.Id));
+                subject.SolvePreREquisites(preReqs);
+            }
         }
 
 
