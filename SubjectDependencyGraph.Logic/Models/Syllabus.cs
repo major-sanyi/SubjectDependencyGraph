@@ -8,22 +8,22 @@
         /// <summary>
         /// The required must-choose credit for the syllabus.
         /// </summary>
-        public int RequiredMustChoseCredit { get; }
+        public int RequiredMustChoseCredit { get; set; }
 
         /// <summary>
         /// The required chosable credit for the syllabus.
         /// </summary>
-        public int RequiredChosableCredit { get; }
+        public int RequiredChosableCredit { get; set; }
 
         /// <summary>
         /// The starting semester for the syllabus specialization.
         /// </summary>
-        public int StartingSpecSemester { get; }
+        public int StartingSpecSemester { get; set; }
 
         /// <summary>
         /// The list of specializations for the syllabus.
         /// </summary>
-        public IReadOnlyList<Specialisation> Specialisations { get; }
+        public List<Specialisation> Specialisations { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Syllabus"/> class.
@@ -53,7 +53,7 @@
         /// </summary>
         /// <param name="selectedSpecs">SelectedSpecs. If left null it doesn't filter</param>
         /// <returns></returns>
-        public IReadOnlyList<Subject> GetSubjectsWithSpec(string[]? selectedSpecs = null)
+        public List<Subject> GetSubjectsWithSpec(string[]? selectedSpecs = null)
         {
             return [.. Subjects, .. FilterSpecSubjects(selectedSpecs)];
         }
@@ -62,7 +62,7 @@
         /// Gets all avalaible subjects including specialisation subjects. Specialisations marked as true.
         /// </summary>
         /// <returns></returns>
-        public IReadOnlyDictionary<Subject, bool> GetSubjectsWithSpecMarked()
+        public Dictionary<Subject, bool> GetSubjectsWithSpecMarked()
         {
             return GetAllSubjectsMarked();
         }
@@ -71,7 +71,7 @@
         /// Gets all avalaible subjects including specialisation subjects from selected specs. Specialisations marked as true.
         /// </summary>
         /// <returns></returns>
-        public IReadOnlyDictionary<Subject, bool> GetSubjectsWithSpecMarked(string[] selectedSpecs)
+        public Dictionary<Subject, bool> GetSubjectsWithSpecMarked(string[] selectedSpecs)
         {
             return GetAllSubjectsMarked(selectedSpecs);
         }
@@ -85,7 +85,6 @@
                 subject.SolvePreREquisites(preReqs);
             }
         }
-
 
         private Dictionary<Subject, bool> GetAllSubjectsMarked(string[]? selectedSpecs = null)
         {
@@ -103,6 +102,7 @@
             }
             return output;
         }
+
         private IEnumerable<Subject> FilterSpecSubjects(string[]? selectedSpecs = null)
         {
             IEnumerable<Subject> specSubjects;

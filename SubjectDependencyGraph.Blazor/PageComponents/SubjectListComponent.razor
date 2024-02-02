@@ -1,9 +1,8 @@
 ﻿@using SubjectDependencyGraph.Shared.Models;
-
-<MudStack Row="true">
+<MudStack Row Spacing="4" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Start">
     @foreach (var subjectGroup in Subjects.GroupBy(subject => subject.Key.RecommendedSemester).OrderBy(x => x.Key))
     {
-        <MudStack>
+        <MudStack Spacing="5" Justify="Justify.FlexStart" AlignItems="AlignItems.Stretch" >
             @foreach (var subject in subjectGroup)
             {
                 <SubjectComponent SubjectParam="subject.Key" IsSpecialisation="subject.Value"></SubjectComponent>
@@ -17,5 +16,5 @@
     public IReadOnlyDictionary<Subject, Boolean> Subjects { get; set; } = new Dictionary<Subject, Boolean>();
 
     [Parameter]
-    public string[] SelectedSpecs{ get; set; } = [];
+    public string[] SelectedSpecs { get; set; } = [];
 }

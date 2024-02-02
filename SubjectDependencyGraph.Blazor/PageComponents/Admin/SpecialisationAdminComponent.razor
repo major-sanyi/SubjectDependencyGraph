@@ -1,0 +1,17 @@
+﻿@using SubjectDependencyGraph.Blazor.Resources
+@using SubjectDependencyGraph.Shared.Models
+<MudDataGrid ReadOnly="ReadOnly" Filterable=true Items="Specs" EditMode="DataGridEditMode.Cell">
+    <Columns>
+        <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Syllabus_Id"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Syllabus_Name"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Length" Title="@AppStrings.Syllabus_Length"></PropertyColumn>
+    </Columns>
+</MudDataGrid>
+
+@code {
+    [Parameter]
+    public List<Specialisation>? Specs { get; set; }
+
+    [Parameter]
+    public bool ReadOnly { get; set; } = false;
+}

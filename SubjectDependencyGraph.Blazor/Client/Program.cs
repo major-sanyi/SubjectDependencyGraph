@@ -1,6 +1,8 @@
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
+using SubjectDependencyGraph.Blazor.Services;
 using SubjectDependencyGraph.Shared.Services;
 
 namespace SubjectDependencyGraph.Blazor
@@ -21,7 +23,9 @@ namespace SubjectDependencyGraph.Blazor
                 options.ResourcesPath = "Resources";
             });
             builder.Services.AddMudServices();
+            builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddScoped<ISyllabiService, SyllabiService>();
+            builder.Services.AddScoped<IBlazorPageMemoryService, BlazorPageMemoryService>();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await builder.Build().RunAsync();
         }

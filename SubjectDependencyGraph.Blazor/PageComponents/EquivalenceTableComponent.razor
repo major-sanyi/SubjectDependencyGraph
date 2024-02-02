@@ -1,34 +1,90 @@
-﻿@using SubjectDependencyGraph.Shared.Models
+﻿@using SubjectDependencyGraph.Blazor.Services
+@using SubjectDependencyGraph.Shared.Models
 @using System.Text
-<MudDataGrid Items="@equalTable?.Subjects" Filterable="false" SortMode="@SortMode.None" Groupable="false">
-    <Columns>
-        <TemplateColumn Title="Required Subject(s)">
-            <CellTemplate>
-                <MudStack Row>
-                    @foreach (var subject in @context.Item.Value)
-                    {
-                        <MudPaper><MudText>@subject</MudText></MudPaper>
-                    }
-                </MudStack>
-            </CellTemplate>
-        </TemplateColumn>
-        <TemplateColumn Title="Required Subject(s) Kredit">
-            <CellTemplate>
-                <MudStack Row>
-                    @foreach (var subject in @context.Item.Value)
-                    {
-                        <MudPaper><MudText>@subject.Kredit</MudText></MudPaper>
-                    }
-                </MudStack>
-            </CellTemplate>
-        </TemplateColumn>
-        <PropertyColumn Property="x => x.Key" Title="Wanted Subject" />
-        <PropertyColumn Property="x => x.Key.Kredit" Title="Wanted Subject Kredit" />
-    </Columns>
-</MudDataGrid>
+@inject IBlazorPageMemoryService pageMemory
+
+<MudTable Items="@equalTable?.Subjects" Filter="new Func<KeyValuePair<Subject, List<Subject>>,bool>(FilterFunc)">
+    <ToolBarContent>
+        <MudSwitch @bind-Value='ShowOnlyFinished'>Show Only Finished</MudSwitch>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Required Subject(s)</MudTh>
+        <MudTh>Required Subject's Credit</MudTh>
+        <MudTh>Wanted Subject</MudTh>
+        <MudTh>Wanted Subject's Credit</MudTh>
+        <MudTh>Finished</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Required Subject(s)">
+            <MudStack>
+                @foreach (var item in context.Value)
+                {
+                    <MudText>@item.ToString()</MudText>
+                }
+            </MudStack>
+        </MudTd>
+        <MudTd DataLabel="Required Subject's Credit">
+            <MudStack>
+                @foreach (var item in context.Value)
+                {
+                    <MudText>@item.Kredit</MudText>
+                }
+            </MudStack>
+        </MudTd>
+        <MudTd DataLabel="Wanted Subject">@context.Key.ToString()</MudTd>
+            <MudTd DataLabel="Wanted Subject's Credit">@context.Key.Kredit</MudTd>
+
+            <MudTd DataLabel="Finished">
+                @{
+                var FinishedIcon = getFinishedIcon(context.Value);
+            }
+            <MudIcon Icon="@FinishedIcon.icon" Color="FinishedIcon.color"></MudIcon>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
 
 @code {
 
     [Parameter]
     public EqualTable? equalTable { get; set; }
+
+    private bool? _showOnlyFinished;
+    protected bool? ShowOnlyFinished
+    {
+        get => _showOnlyFinished;
+        set
+        {
+            _showOnlyFinished = value;
+            if (value is not null) { pageMemory.ShowOnlyFinishedSubjects = (bool)value; }
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        _showOnlyFinished = pageMemory.ShowOnlyFinishedSubjects;
+        base.OnInitialized();
+    }
+    private bool FilterFunc(KeyValuePair<Subject, List<Subject>> subjects)
+    {
+        if (!ShowOnlyFinished ?? true)
+            return true;
+        else
+        {
+            return subjects.Value.Any(x => x.Finished);
+        }
+    }
+
+    private (string icon, Color color) getFinishedIcon(List<Subject> subjects)
+    {
+        if (subjects.Count(x => x.Finished) == subjects.Count)
+            return (Icons.Material.Filled.CheckCircle, Color.Success);
+        else if (subjects.Any(x => x.Finished))
+        {
+            return (Icons.Material.Filled.CheckCircleOutline, Color.Warning);
+        }
+        else
+        {
+            return (Icons.Material.Filled.Close, Color.Error);
+        }
+    }
 }

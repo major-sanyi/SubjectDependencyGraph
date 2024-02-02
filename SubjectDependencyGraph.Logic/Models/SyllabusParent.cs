@@ -23,7 +23,7 @@
         /// <summary>
         /// List of subjects included in the syllabus.
         /// </summary>
-        public IReadOnlyList<Subject> Subjects { get; }
+        public List<Subject> Subjects { get; }
 
         /// <summary>
         /// Constructor for the SyllabusParent class.

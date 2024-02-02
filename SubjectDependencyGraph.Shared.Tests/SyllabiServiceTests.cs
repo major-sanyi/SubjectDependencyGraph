@@ -29,82 +29,25 @@ namespace SubjectDependencyGraph.Shared.Tests
         {
             //Arrange
             var syllabiService = new SyllabiService(new Dictionary<string, List<string>>() { { SYLLABUSID, [SUBJECTID] } });
-            syllabiService.SelectSyllabus(SYLLABUSID);
+            var selectedSyllabus = syllabiService.Syllabi.First(x => x.Id == SYLLABUSID);
 
-            Assert.That(syllabiService.SelectedSyllabus.Subjects, Has.Exactly(1).Matches<Subject>(x => x.Finished));
-            Assert.That(syllabiService.SelectedSyllabus.Subjects, Has.Exactly(1).Matches<Subject>(x => x.Finished && x.Id == SUBJECTID));
+            Assert.That(selectedSyllabus.Subjects, Has.Exactly(1).Matches<Subject>(x => x.Finished));
+            Assert.That(selectedSyllabus.Subjects, Has.Exactly(1).Matches<Subject>(x => x.Finished && x.Id == SUBJECTID));
         }
 
         [Test]
         public void Syllabi_ShouldReturnCorrectDictionary()
         {
 
-            Assert.That(_syllabiService.Syllabi, Does.ContainKey(SYLLABUSID));
+            Assert.That(_syllabiService.Syllabi, Has.Exactly(1).Matches<SyllabusParent>(x => x.Id == SYLLABUSID));
         }
 
         [Test]
         public void Specialisations_ShouldReturnCorrectDictionary()
         {
-            Assert.That(_syllabiService.Specialisations, Does.ContainKey(SPECID1));
+            Assert.That(_syllabiService.Syllabi.First(x => x.Id == SYLLABUSID).Specialisations, Has.Exactly(1).Matches<Specialisation>(x => x.Id == SPECID1));
         }
 
-        [Test]
-        public void SelectedSyllabus_ShouldBeSetCorrectly()
-        {
-            // Arrange
-
-            // Act
-            _syllabiService.SelectSyllabus(SYLLABUSID);
-
-            // Assert
-            Assert.That(_syllabiService.SelectedSyllabus.Id, Is.EqualTo(SYLLABUSID));
-        }
-
-        [Test]
-        public void SelectedSpecialisations_ShouldBeEmptyInitially()
-        {
-            // Assert
-            Assert.That(_syllabiService.SelectedSpecialisations, Is.Empty);
-        }
-
-        [Test]
-        public void SelectSpecialisation_ShouldAddSpecialisation()
-        {
-            // Arrange
-
-            // Act
-            _syllabiService.SelectSpecialisation(SPECID1);
-
-            // Assert
-            Assert.That(_syllabiService.SelectedSpecialisations, Has.Exactly(1).Matches<Specialisation>(x => x.Id == SPECID1));
-        }
-        [Test]
-        public void SelectedSpecialisation_ShouldNotContainDuplicate()
-        {
-
-            // Act
-            _syllabiService.SelectSpecialisation(SPECID1);
-            _syllabiService.SelectSpecialisation(SPECID1);
-            _syllabiService.SelectSpecialisation(SPECID1);
-
-
-            // Assert
-            Assert.That(_syllabiService.SelectedSpecialisations, Has.Exactly(1).Matches<Specialisation>(x => x.Id == SPECID1));
-        }
-
-        [Test]
-        public void SelectMultipleSpecialisations_ShouldAddMultipleSpecialisations()
-        {
-            // Arrange
-            var specialisationIds = new string[] { SPECID1, SPECID2 };
-            var expectedSpecialisations = _syllabiService.SelectedSyllabus.Specialisations.Where(s => specialisationIds.Contains(s.Id)).ToList();
-
-            // Act
-            _syllabiService.SelectMultipleSpecialisations(specialisationIds);
-
-            // Assert
-            CollectionAssert.AreEquivalent(_syllabiService.SelectedSpecialisations, expectedSpecialisations);
-        }
 
         [Test]
         public void AddSyllabus_ShouldAddSyllabusToList()
@@ -116,18 +59,18 @@ namespace SubjectDependencyGraph.Shared.Tests
             _syllabiService.AddSyllabus(syllabus);
 
             // Assert
-            Assert.That(_syllabiService.Syllabi, Does.ContainKey("Syllabus2"));
+            Assert.That(_syllabiService.Syllabi, Has.Exactly(1).Matches<SyllabusParent>(x => x.Id == "Syllabus2"));
         }
 
         [Test]
         public void ExportData_ShouldReturnCorrectCompletedSubjects()
         {
             // Arrange
-            Subject subject = _syllabiService.SelectedSyllabus.Subjects[0];
+            Subject subject = _syllabiService.Syllabi.First(x => x.Id == SYLLABUSID).Subjects[0];
             subject.Finished = true;
 
             // Act
-            var actualCompletedSubjects = _syllabiService.ExportData();
+            var actualCompletedSubjects = _syllabiService.ExportCompletedSubjects();
 
             // Assert
             Assert.That(actualCompletedSubjects, Does.ContainValue(new List<string>([subject.Id])));

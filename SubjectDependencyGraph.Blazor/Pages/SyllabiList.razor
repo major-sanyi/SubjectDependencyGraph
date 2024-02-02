@@ -1,46 +1,27 @@
 ﻿@page "/syllabi"
 @using SubjectDependencyGraph.Blazor.PageComponents
+@using SubjectDependencyGraph.Blazor.PageComponents.Admin
 @using SubjectDependencyGraph.Blazor.Resources
 @using SubjectDependencyGraph.Shared.Services
 @using SubjectDependencyGraph.Shared.Models;
 @inject ISyllabiService SyllabiService
 
 <PageTitle>@AppStrings.Syllabi</PageTitle>
-
     @if (syllabi == null)
 {
     <p><em>@AppStrings.LoadingMessage</em></p>
 }
 else
 {
-    <MudDataGrid Items="syllabi">
-        <Columns>
-            <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Syllabus_Id"></PropertyColumn>
-            <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Syllabus_Name"></PropertyColumn>
-            <PropertyColumn Property="x=>x.Length" Title="@AppStrings.Syllabus_Length"></PropertyColumn>
-            <PropertyColumn Property="x=>x.RequiredMustChoseCredit" Title="@AppStrings.Syllabus_MustChoseCredit"></PropertyColumn>
-            <PropertyColumn Property="x=>x.RequiredChosableCredit" Title="@AppStrings.Syllabus_ChosableCredit"></PropertyColumn>
-            <PropertyColumn Property="x=>x.StartingSpecSemester" Title="@AppStrings.Syllabus_StartingSpecSemester"></PropertyColumn>
-            <TemplateColumn Property="x=>x.Specialisations" Title="@AppStrings.Syllabus_Specialisations">
-                <CellTemplate>
-                    <MudStack >
-                    @foreach (var spec in context.Item.Specialisations)
-                    {
-                        <MudPaper>@spec.Name</MudPaper>
-                    }
-                    </MudStack>
-                </CellTemplate>
-
-            </TemplateColumn>
-        </Columns>
-    </MudDataGrid>
+    <SyllabusAdminComponent Syllabi="syllabi" ReadOnly="true"></SyllabusAdminComponent>
 }
 
 @code {
-    private IReadOnlyList<Syllabus>? syllabi;
+    private List<Syllabus>? syllabi;
     protected override void OnInitialized()
     {
         syllabi = SyllabiService.Syllabi;
+
         base.OnInitialized();
     }
 }

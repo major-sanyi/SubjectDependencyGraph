@@ -1,0 +1,44 @@
+﻿@page "/admin"
+@using SubjectDependencyGraph.Blazor.PageComponents.Admin
+@using SubjectDependencyGraph.Shared.Models
+@using SubjectDependencyGraph.Shared.Services
+@inject ISyllabiService SyllabiService
+
+<MudDivider />
+<MudTabs Elevation="4" Rounded="true" Color="@Color.Secondary">
+    <MudTabPanel Text="Syllabus">
+        <SyllabusAdminComponent Syllabi="Syllabi" />
+    </MudTabPanel>
+    <MudTabPanel Text="Spec">
+        <MudSelect @bind-Value="SelectedSyllabus" Items>
+            @foreach (var item in Syllabi ?? [])
+            {
+                <MudSelectItem Value="item" />
+            }
+
+        </MudSelect>
+        <SpecialisationAdminComponent Specs="SelectedSyllabus?.Specialisations" />
+    </MudTabPanel>
+    <MudTabPanel Text="Subjects">
+        <MudStack Row>
+            <MudSelect @bind-Value="SelectedSyllabus" Items>
+                @foreach (var item in Syllabi ?? [])
+                {
+                    <MudSelectItem Value="item" />
+                }
+            </MudSelect>
+        </MudStack>
+        <SubjectAdminComponent Subjects="SelectedSyllabus?.GetSubjectsWithSpec()" />
+    </MudTabPanel>
+</MudTabs>
+@code {
+    protected List<Syllabus>? Syllabi { get; set; }
+    protected Syllabus? SelectedSyllabus { get; set; }
+    private bool PreReqEditable { get; set; } = true;
+    protected override void OnInitialized()
+    {
+        Syllabi = SyllabiService.Syllabi;
+        SelectedSyllabus = Syllabi[0];
+        base.OnInitialized();
+    }
+}

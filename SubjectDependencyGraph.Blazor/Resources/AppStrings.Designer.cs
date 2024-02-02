@@ -70,6 +70,69 @@ namespace SubjectDependencyGraph.Blazor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string Subject_Finished {
+            get {
+                return ResourceManager.GetString("Subject_Finished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        public static string Subject_Id {
+            get {
+                return ResourceManager.GetString("Subject_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credit.
+        /// </summary>
+        public static string Subject_Kredit {
+            get {
+                return ResourceManager.GetString("Subject_Kredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Subject_Language {
+            get {
+                return ResourceManager.GetString("Subject_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Subject_Name {
+            get {
+                return ResourceManager.GetString("Subject_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pre Requisites.
+        /// </summary>
+        public static string Subject_PreRequisiteSubjects {
+            get {
+                return ResourceManager.GetString("Subject_PreRequisiteSubjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended semester.
+        /// </summary>
+        public static string Subject_RecommendedSemester {
+            get {
+                return ResourceManager.GetString("Subject_RecommendedSemester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Syllabi.
         /// </summary>
         public static string Syllabi {

@@ -1,31 +1,49 @@
 ﻿@page "/subjects"
 @using SubjectDependencyGraph.Blazor.PageComponents
+@using SubjectDependencyGraph.Blazor.Resources
+@using SubjectDependencyGraph.Blazor.Services
 @using SubjectDependencyGraph.Shared.Models
 @using SubjectDependencyGraph.Shared.Services
+@using Blazored.LocalStorage
 @inject ISyllabiService SyllabiService
+@inject IBlazorPageMemoryService PageMemory
+@inject ISyncLocalStorageService LocalStorage
 
-<!-- We need solution that might not querys everytime-->
-<MudSelect T="Syllabus" @bind-Value=selectedSyllabus Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
-    @foreach (var item in syllabi ?? [])
-    {
-        <MudSelectItem Value="@item">@item</MudSelectItem>
-    }
-</MudSelect>
 
-<MudSelect T="string" MultiSelection="true" Label="Specs" @bind-SelectedValues=selectedSpecs>
-    @foreach (var item in specialisations ?? [])
-    {
-        <MudSelectItem Value="@item.Id">@item.ToString()</MudSelectItem>
-    }
-</MudSelect>
+<MudStack Row>
+    <MudSelect T="Syllabus" @bind-Value=selectedSyllabus Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
+        @foreach (var item in syllabi ?? [])
+        {
+            <MudSelectItem Value="@item">@item</MudSelectItem>
+        }
+    </MudSelect>
+
+    <MudSelect T="string" MultiSelection="true" Label="Specs" @bind-SelectedValues=selectedSpecs>
+        @foreach (var item in specialisations ?? [])
+        {
+            <MudSelectItem Value="@item.Id">@item.ToString()</MudSelectItem>
+        }
+    </MudSelect>
+    <MudFab Color="Color.Primary" OnClick="SaveFinishedSubjects" StartIcon="@Icons.Material.Filled.Save" />
+    <MudFab Color="Color.Primary" OnClick="ClearFinishedSubjects" StartIcon="@Icons.Material.Filled.Delete" />
+</MudStack>
 
 <SubjectListComponent Subjects="subjects" />
 
 @code {
+    private Syllabus? _selectedSyllabus;
 
-    private IReadOnlyList<Syllabus>? syllabi { get; set; }
-    private Syllabus? selectedSyllabus { get; set; }
-    private IEnumerable<Specialisation> specialisations
+    protected IReadOnlyList<Syllabus>? syllabi { get; set; }
+    protected Syllabus? selectedSyllabus
+    {
+        get => _selectedSyllabus; set
+        {
+            _selectedSyllabus = value;
+            if (value is not null)
+                PageMemory.SyllabusSelected = value;
+        }
+    }
+    protected IEnumerable<Specialisation> specialisations
     {
         get
         {
@@ -33,14 +51,27 @@
             return selectedSyllabus?.Specialisations ?? [];
         }
     }
-
-    private IEnumerable<string> selectedSpecs = new HashSet<string>();
-    private IReadOnlyDictionary<Subject, Boolean> subjects => selectedSyllabus?.GetSubjectsWithSpecMarked(selectedSpecs.ToArray())??new Dictionary<Subject,bool>();
+    protected IEnumerable<string> selectedSpecs = new HashSet<string>();
+    protected IReadOnlyDictionary<Subject, Boolean> subjects => selectedSyllabus?.GetSubjectsWithSpecMarked(selectedSpecs.ToArray()) ?? new Dictionary<Subject, bool>();
 
     protected override void OnInitialized()
     {
         syllabi = SyllabiService.Syllabi;
-        selectedSyllabus=syllabi?[0];
+        _selectedSyllabus = PageMemory.SyllabusSelected;
+        var finishedSubject = LocalStorage.GetItem<Dictionary<string, List<string>>>(Constants.FinishedSubjectStorageKey);
+        if (finishedSubject is not null)
+        {
+            SyllabiService.ImportCompletedSubjects(finishedSubject);
+        }
         base.OnInitialized();
+    }
+    protected void SaveFinishedSubjects()
+    {
+        LocalStorage.SetItem<Dictionary<string, List<string>>>(Constants.FinishedSubjectStorageKey, SyllabiService.ExportCompletedSubjects());
+    }
+    protected void ClearFinishedSubjects()
+    {
+        SyllabiService.ClearFinishStatus();
+        LocalStorage.RemoveItem(Constants.FinishedSubjectStorageKey);
     }
 }

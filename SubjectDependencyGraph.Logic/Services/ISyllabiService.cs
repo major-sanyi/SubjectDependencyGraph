@@ -8,24 +8,9 @@ namespace SubjectDependencyGraph.Shared.Services
     public interface ISyllabiService
     {
         /// <summary>
-        /// Gets the selected syllabus.
-        /// </summary>
-        Syllabus SelectedSyllabus { get; }
-
-        /// <summary>
-        /// Gets the selected specializations.
-        /// </summary>
-        IReadOnlyList<Specialisation> SelectedSpecialisations { get; }
-
-        /// <summary>
-        /// Gets the dictionary of specializations with their IDs and names.
-        /// </summary>
-        IReadOnlyList<Specialisation> Specialisations { get; }
-
-        /// <summary>
         /// Gets the dictionary of syllabi with their IDs and names.
         /// </summary>
-        IReadOnlyList<Syllabus> Syllabi { get; }
+        List<Syllabus> Syllabi { get; }
 
         /// <summary>
         /// Gets the list of Equality tables.
@@ -39,27 +24,20 @@ namespace SubjectDependencyGraph.Shared.Services
         void AddSyllabus(Syllabus syllabus);
 
         /// <summary>
+        /// Clears finished status of subjects.
+        /// </summary>
+        void ClearFinishStatus();
+
+        /// <summary>
         /// Exports the completed subjects data.
         /// </summary>
         /// <returns>The dictionary of syllabus IDs and their completed subject IDs.</returns>
-        Dictionary<string, List<string>> ExportData();
+        Dictionary<string, List<string>> ExportCompletedSubjects();
 
         /// <summary>
-        /// Selects multiple specializations.
+        /// Imports compleeted subjects.
         /// </summary>
-        /// <param name="specId">The array of specialization IDs to select.</param>
-        void SelectMultipleSpecialisations(string[] specId);
-
-        /// <summary>
-        /// Selects a specialization.
-        /// </summary>
-        /// <param name="specId">The ID of the specialization to select.</param>
-        void SelectSpecialisation(string specId);
-
-        /// <summary>
-        /// Selects a syllabus.
-        /// </summary>
-        /// <param name="syllabusId">The ID of the syllabus to select.</param>
-        void SelectSyllabus(string syllabusId);
+        /// <param name="completedSubjects"></param>
+        void ImportCompletedSubjects(Dictionary<string, List<string>> completedSubjects);
     }
 }

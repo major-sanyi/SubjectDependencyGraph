@@ -120,6 +120,27 @@
   <data name="LoadingMessage" xml:space="preserve">
     <value>Loading...</value>
   </data>
+  <data name="Subject_Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="Subject_Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Subject_Kredit" xml:space="preserve">
+    <value>Credit</value>
+  </data>
+  <data name="Subject_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Subject_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Subject_PreRequisiteSubjects" xml:space="preserve">
+    <value>Pre Requisites</value>
+  </data>
+  <data name="Subject_RecommendedSemester" xml:space="preserve">
+    <value>Recommended semester</value>
+  </data>
   <data name="Syllabi" xml:space="preserve">
     <value>Syllabi</value>
   </data>

@@ -1,7 +1,11 @@
 ﻿@page "/equallist"
+@using SubjectDependencyGraph.Blazor.PageComponents
+@using SubjectDependencyGraph.Blazor.Services
 @using SubjectDependencyGraph.Shared.Models
 @using SubjectDependencyGraph.Shared.Services
 @inject ISyllabiService SyllabiService
+@inject IBlazorPageMemoryService pageMemory
+
 
 
 <PageTitle>Eqvivalance</PageTitle>
@@ -11,15 +15,22 @@
         <MudSelectItem T="EqualTable" Value="@item" />
     }
 </MudSelect>
-<SubjectDependencyGraph.Blazor.PageComponents.EquivalenceTableComponent equalTable="selectedTable" ></SubjectDependencyGraph.Blazor.PageComponents.EquivalenceTableComponent>
+<EquivalenceTableComponent equalTable="selectedTable"></EquivalenceTableComponent>
 
 @code {
     private IReadOnlyList<EqualTable>? equalTables { get; set; }
-    private EqualTable? selectedTable { get; set; }
+    private EqualTable? _selectedTable;
+    private EqualTable? selectedTable
+    {
+        get => _selectedTable; set
+        {
+            _selectedTable = value; if (value is not null)
+                pageMemory.EqualTableSelected = value; }
+    }
     protected override void OnInitialized()
     {
         equalTables = SyllabiService.EqualityTables;
-        selectedTable = equalTables[0];
+        _selectedTable = pageMemory.EqualTableSelected;
         base.OnInitialized();
     }
 }

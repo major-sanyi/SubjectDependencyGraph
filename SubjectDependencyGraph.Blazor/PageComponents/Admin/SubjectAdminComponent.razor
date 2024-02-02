@@ -1,0 +1,56 @@
+﻿@using SubjectDependencyGraph.Blazor.Resources
+@using SubjectDependencyGraph.Shared.Models
+
+<MudDataGrid ReadOnly="ReadOnly" Filterable=true Items="Subjects" EditMode="DataGridEditMode.Cell">
+    <Columns>
+        <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Subject_Id"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Subject_Name"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Kredit" Title="@AppStrings.Subject_Kredit"></PropertyColumn>
+        <PropertyColumn Property="x=>x.RecommendedSemester" Title="@AppStrings.Subject_RecommendedSemester"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Language" Title="@AppStrings.Subject_Language"></PropertyColumn>
+        <PropertyColumn Filterable="false" Sortable="false" Property="x=>x.PreRequisiteSubjectsSolved" Title="@AppStrings.Subject_PreRequisiteSubjects">
+            <EditTemplate>
+                <MudSelect T="Subject" MultiSelection="true" SelectedValuesChanged="@(x=>HandleSelectedValuesChanged(x,context.Item ))" SelectedValues="context.Item.PreRequisiteSubjectsSolved">
+                    @foreach (var item in Subjects ?? [])
+                    {
+                        @if (item.Id != context.Item.Id)
+                        {
+                            <MudSelectItem T="Subject" Value="@item">@item</MudSelectItem>
+                        }
+                    }
+                </MudSelect>
+            </EditTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="x=>x.Finished" Title="@AppStrings.Subject_Finished">
+            <EditTemplate>
+                <MudCheckBox @bind-Value="context.Item.Finished" />
+            </EditTemplate>
+        </PropertyColumn>
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager />
+    </PagerContent>
+</MudDataGrid>
+
+@code {
+    [Parameter]
+    public List<Subject>? Subjects { get; set; }
+
+    [Parameter]
+    public bool ReadOnly { get; set; } = false;
+
+    void OpenFilter()
+    {
+        _filterOpen = true;
+    }
+
+    protected override void OnInitialized()
+    {
+
+        base.OnInitialized();
+    }
+    private void HandleSelectedValuesChanged(IEnumerable<Subject> changedValues, Subject subject)
+    {
+        subject.PreRequisiteSubjectsSolved = new HashSet<Subject>(changedValues);
+    }
+}

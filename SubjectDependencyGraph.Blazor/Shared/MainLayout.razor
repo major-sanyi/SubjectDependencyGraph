@@ -8,6 +8,7 @@
             <MudTabPanel Text="syllabi list" />
             <MudTabPanel Text="Subjects" />
             <MudTabPanel Text="Equvalence" />
+            <MudTabPanel Text="Admin"/>
         </MudTabs>
         <article class="content px-4">
             @Body
@@ -18,17 +19,17 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 @code {
-
-
-    private void IndexChanged(int index)
+    protected void IndexChanged(int index)
     {
         Navigation.NavigateTo(_routingTable[index]);
     }
-    private Dictionary<int, string> _routingTable = new Dictionary<int, string>()
-    {
-        { 0, "" },
-        { 1, "syllabi" },
-        { 2, "subjects" },
-        {3,"equallist"}
-    };
+
+    protected string[] _routingTable =
+    [
+        "",
+        "syllabi",
+        "subjects",
+        "equallist",
+        "admin"
+    ];
 }

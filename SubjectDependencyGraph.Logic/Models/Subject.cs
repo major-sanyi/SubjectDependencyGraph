@@ -16,47 +16,46 @@ namespace SubjectDependencyGraph.Shared.Models
     /// <param name="preRequisiteSubjects">The list of prerequisites for the subject.</param>
     public class Subject(string id, string name, int kredit, int recommendedSemester, string language, List<string>? preRequisiteSubjects = null)
     {
-        private readonly List<Subject> _preRequisiteSubjectsSolved = [];
         private bool _finished = false;
         private bool _highlighted = false;
 
         /// <summary>
         /// Gets or sets the ID of the subject.
         /// </summary>
-        public string Id { get; } = id;
+        public string Id { get; set; } = id;
 
         /// <summary>
         /// Gets or sets the name of the subject.
         /// </summary>
-        public string Name { get; } = name;
+        public string Name { get; set; } = name;
 
         /// <summary>
         /// Gets or sets the credit value of the subject.
         /// </summary>
-        public int Kredit { get; } = kredit;
+        public int Kredit { get; set; } = kredit;
 
         /// <summary>
         /// Gets or sets the recommended semester for the subject.
         /// </summary>
-        public int RecommendedSemester { get; } = recommendedSemester;
+        public int RecommendedSemester { get; set; } = recommendedSemester;
 
         /// <summary>
         /// Gets or sets the language of the subject.
         /// </summary>
-        public string Language { get; } = language;
+        public string Language { get; set; } = language;
 
         /// <summary>
         /// Gets the list of prerequisites for the subject.
         /// It's the ID of the prerequisites subjects.
         /// </summary>
-        public IReadOnlyList<string> PreRequisiteSubjects { get; } = preRequisiteSubjects ?? [];
+        public List<string> PreRequisiteSubjects { get; } = preRequisiteSubjects ?? [];
 
         /// <summary>
         /// Gets the list of prerequisites for the subject.
         /// </summary>
         [System.Text.Json.Serialization.JsonIgnore]
         [JsonProperty(Required = Required.Default)]
-        public IReadOnlyList<Subject> PreRequisiteSubjectsSolved => _preRequisiteSubjectsSolved;
+        public HashSet<Subject> PreRequisiteSubjectsSolved { get; set; } = [];
 
         /// <summary>
         /// Gets or sets a value indicating whether the subject is finished.
@@ -93,7 +92,7 @@ namespace SubjectDependencyGraph.Shared.Models
             {
                 if (PreRequisiteSubjects.Contains(item.Id))
                 {
-                    _preRequisiteSubjectsSolved.Add(item);
+                    PreRequisiteSubjectsSolved.Add(item);
                 }
             }
         }
@@ -104,7 +103,6 @@ namespace SubjectDependencyGraph.Shared.Models
         public void HighLightStart()
         {
             this.Highlighted = true;
-            Console.WriteLine(this);
             foreach (var item in PreRequisiteSubjectsSolved)
             {
                 item.HighLightStart();

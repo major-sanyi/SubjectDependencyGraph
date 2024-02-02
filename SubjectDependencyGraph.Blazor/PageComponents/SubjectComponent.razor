@@ -1,20 +1,22 @@
 ﻿@using SubjectDependencyGraph.Shared.Models;
 
-<MudPaper Class="pa-4 ma-2" Elevation="4" @onclick="OnClick" @onmouseenter="HighlightStart" @onmouseleave="HighlightEnds">
+<MudPaper Class="pa-4" Elevation="4" @onclick="OnClick" @onmouseenter="HighlightStart" @onmouseleave="HighlightEnds">
     <MudStack Row="true">
         <MudAvatar Size="Size.Large" Color="GetColor">@SubjectParam?.Kredit</MudAvatar>
             <MudStack Justify="Justify.Center" Spacing="0">
-                <MudText Typo="Typo.body1">@SubjectParam?.Id</MudText>
-                <MudText Typo="Typo.body2">@SubjectParam?.Name</MudText>
+                <MudText Typo="Typo.overline">@SubjectParam?.Id</MudText>
+                <MudText Typo="Typo.body1">@SubjectParam?.Name</MudText>
             </MudStack>
+
         </MudStack>
+
         @if (ShowPreReq && (PreReqs?.Any() ?? false))
     {
         <MudTreeView T="string">
-            <MudTreeViewItem Icon="@Icons.Material.Filled.Subject" Value='"Prerequistes"'>
+            <MudTreeViewItem TextTypo="Typo.body2" Icon="@Icons.Material.Filled.Subject" Value='"Prerequistes"'>
                 @foreach (var item in PreReqs)
                 {
-                    <MudTreeViewItem Value="item.ToString()" Icon="@GetPreReqIcon(item.Finished)" IconColor="GetPreReqColor(item.Finished)" />
+                    <MudTreeViewItem TextTypo="Typo.caption" Value="item.ToString()" Icon="@GetPreReqIcon(item.Finished)" IconColor="GetPreReqColor(item.Finished)" />
                 }
             </MudTreeViewItem>
         </MudTreeView>
@@ -48,7 +50,7 @@
         }
     }
 
-    private IReadOnlyList<Subject>? PreReqs
+    private HashSet<Subject>? PreReqs
     {
         get
         {
@@ -93,7 +95,7 @@
             {
                 if (SubjectParam.Highlighted)
                 {
-                    return Color.Tertiary;
+                    return Color.Info;
                 }
                 else if (IsSpecialisation)
                 {
@@ -101,7 +103,7 @@
                 }
                 else
                 {
-                    return Color.Info;
+                    return Color.Success;
                 }
             }
             else
@@ -116,7 +118,7 @@
                 }
                 else
                 {
-                    return Color.Primary;
+                    return Color.Warning;
                 }
             }
         }
