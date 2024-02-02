@@ -17,7 +17,7 @@ else
 }
 
 @code {
-    private List<Syllabus>? syllabi;
+    private IEnumerable<Syllabus>? syllabi;
     protected override void OnInitialized()
     {
         syllabi = SyllabiService.Syllabi;

@@ -10,16 +10,16 @@ namespace SubjectDependencyGraph.Shared.Services
     public class SyllabiService : ISyllabiService
     {
         /// <inheritdoc/>
-        public List<Syllabus> Syllabi => _syllabi;
+        public HashSet<Syllabus> Syllabi => _syllabi;
 
         /// <inheritdoc/>
         public IReadOnlyList<EqualTable> EqualityTables { get; private set; }
 
-        private readonly static List<Syllabus> defaultSyllabi = JsonConvert.DeserializeObject<List<Syllabus>>(Resources.Resource.OENIK_E) ?? [];
+        private readonly static HashSet<Syllabus> defaultSyllabi = JsonConvert.DeserializeObject<HashSet<Syllabus>>(Resources.Resource.OENIK_E) ?? [];
         // Needs rework lol
         private readonly static List<EqualTableDto> defaultEquals = JsonConvert.DeserializeObject<List<EqualTableDto>>(Resources.Resource.OENIK_E_equals) ?? [];
 
-        private readonly List<Syllabus> _syllabi;
+        private readonly HashSet<Syllabus> _syllabi;
 
         /// <inheritdoc/>
         public SyllabiService() : this(defaultSyllabi, defaultEquals)
@@ -28,13 +28,13 @@ namespace SubjectDependencyGraph.Shared.Services
         }
 
         /// <inheritdoc/>
-        public SyllabiService(Dictionary<string, List<string>> completedSubjects) : this(defaultSyllabi, defaultEquals, completedSubjects)
+        public SyllabiService(Dictionary<string, HashSet<string>> completedSubjects) : this(defaultSyllabi, defaultEquals, completedSubjects)
         {
 
         }
 
         /// <inheritdoc/>
-        public SyllabiService(List<Syllabus> avalaibleSyllabi, List<EqualTableDto> equalTables, Dictionary<string, List<string>>? completedSubjects = null)
+        public SyllabiService(HashSet<Syllabus> avalaibleSyllabi, List<EqualTableDto> equalTables, Dictionary<string, HashSet<string>>? completedSubjects = null)
         {
             _syllabi = avalaibleSyllabi;
             if (completedSubjects != null)
@@ -57,6 +57,7 @@ namespace SubjectDependencyGraph.Shared.Services
                 }
             }
             EqualityTables = equalTables.Select(x => new EqualTable(x, _syllabi)).ToList();
+            Console.WriteLine(Syllabi.OrderBy(x => x.Id));
         }
 
         /// <inheritdoc/>
@@ -66,14 +67,14 @@ namespace SubjectDependencyGraph.Shared.Services
         }
 
         /// <inheritdoc/>
-        public Dictionary<string, List<string>> ExportCompletedSubjects()
+        public Dictionary<string, HashSet<string>> ExportCompletedSubjects()
         {
-            Dictionary<string, List<string>> completedSubjects = [];
+            Dictionary<string, HashSet<string>> completedSubjects = [];
             foreach (var syllabus in _syllabi)
             {
                 completedSubjects
                     .Add(syllabus.Id,
-                    GetAllSubjectsFromSyllabi(syllabus.Id).Where(x => x.Finished).Select(x => x.Id).ToList());
+                    GetAllSubjectsFromSyllabi(syllabus.Id).Where(x => x.Finished).Select(x => x.Id).ToHashSet());
             }
             return completedSubjects;
         }
@@ -87,11 +88,11 @@ namespace SubjectDependencyGraph.Shared.Services
             }
         }
         /// <inheritdoc/>
-        public void ImportCompletedSubjects(Dictionary<string, List<string>> completedSubjects)
+        public void ImportCompletedSubjects(Dictionary<string, HashSet<string>> completedSubjects)
         {
             // Reset completed
             ClearFinishStatus();
-            foreach (KeyValuePair<string, List<string>> keyValue in completedSubjects)
+            foreach (KeyValuePair<string, HashSet<string>> keyValue in completedSubjects)
             {
                 foreach (var item in GetAllSubjectsFromSyllabi(keyValue.Key)
                     .Where(x => keyValue.Value.Contains(x.Id)))
@@ -107,9 +108,9 @@ namespace SubjectDependencyGraph.Shared.Services
         /// </summary>
         /// <param name="syllabusID"></param>
         /// <returns></returns>
-        private List<Subject> GetAllSubjectsFromSyllabi(string syllabusID)
+        private HashSet<Subject> GetAllSubjectsFromSyllabi(string syllabusID)
         {
-            return _syllabi.First(x => x.Id == syllabusID).GetSubjectsWithSpec();
+            return [.. _syllabi.First(x => x.Id == syllabusID).GetSubjectsWithSpec()];
         }
     }
 }

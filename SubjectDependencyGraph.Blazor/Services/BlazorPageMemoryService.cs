@@ -12,7 +12,7 @@ namespace SubjectDependencyGraph.Blazor.Services
         /// <summary>
         /// The SelectedSyllabus
         /// </summary>
-        public Syllabus SyllabusSelected { get; set; } = syllabiService.Syllabi[0];
+        public Syllabus SyllabusSelected { get; set; } = syllabiService.Syllabi.First();
 
         /// <summary>
         /// The selected equalTable

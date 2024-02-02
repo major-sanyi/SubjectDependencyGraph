@@ -13,7 +13,7 @@
 
 @code {
     [Parameter]
-    public IReadOnlyDictionary<Subject, Boolean> Subjects { get; set; } = new Dictionary<Subject, Boolean>();
+    public Dictionary<Subject, Boolean> Subjects { get; set; } = new Dictionary<Subject, Boolean>();
 
     [Parameter]
     public string[] SelectedSpecs { get; set; } = [];

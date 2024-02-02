@@ -10,7 +10,7 @@ namespace SubjectDependencyGraph.Shared.Services
         /// <summary>
         /// Gets the dictionary of syllabi with their IDs and names.
         /// </summary>
-        List<Syllabus> Syllabi { get; }
+        HashSet<Syllabus> Syllabi { get; }
 
         /// <summary>
         /// Gets the list of Equality tables.
@@ -32,12 +32,12 @@ namespace SubjectDependencyGraph.Shared.Services
         /// Exports the completed subjects data.
         /// </summary>
         /// <returns>The dictionary of syllabus IDs and their completed subject IDs.</returns>
-        Dictionary<string, List<string>> ExportCompletedSubjects();
+        Dictionary<string, HashSet<string>> ExportCompletedSubjects();
 
         /// <summary>
         /// Imports compleeted subjects.
         /// </summary>
         /// <param name="completedSubjects"></param>
-        void ImportCompletedSubjects(Dictionary<string, List<string>> completedSubjects);
+        void ImportCompletedSubjects(Dictionary<string, HashSet<string>> completedSubjects);
     }
 }

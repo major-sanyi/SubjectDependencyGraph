@@ -3,7 +3,7 @@
 @using System.Text
 @inject IBlazorPageMemoryService pageMemory
 
-<MudTable Items="@equalTable?.Subjects" Filter="new Func<KeyValuePair<Subject, List<Subject>>,bool>(FilterFunc)">
+<MudTable Items="@equalTable?.Subjects" Filter="new Func<KeyValuePair<Subject, HashSet<Subject>>,bool>(FilterFunc)">
     <ToolBarContent>
         <MudSwitch @bind-Value='ShowOnlyFinished'>Show Only Finished</MudSwitch>
     </ToolBarContent>
@@ -64,7 +64,7 @@
         _showOnlyFinished = pageMemory.ShowOnlyFinishedSubjects;
         base.OnInitialized();
     }
-    private bool FilterFunc(KeyValuePair<Subject, List<Subject>> subjects)
+    private bool FilterFunc(KeyValuePair<Subject, HashSet<Subject>> subjects)
     {
         if (!ShowOnlyFinished ?? true)
             return true;
@@ -74,7 +74,7 @@
         }
     }
 
-    private (string icon, Color color) getFinishedIcon(List<Subject> subjects)
+    private (string icon, Color color) getFinishedIcon(HashSet<Subject> subjects)
     {
         if (subjects.Count(x => x.Finished) == subjects.Count)
             return (Icons.Material.Filled.CheckCircle, Color.Success);

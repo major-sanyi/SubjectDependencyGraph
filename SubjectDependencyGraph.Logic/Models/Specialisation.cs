@@ -16,7 +16,7 @@
         /// <param name="name">The name of the specialization.</param>
         /// <param name="length">The length of the specialization.</param>
         /// <param name="subjects">The list of subjects for this specialization.</param>
-        public Specialisation(string id, string name, int length, List<Subject>? subjects = null) : base(id, name, length, subjects)
+        public Specialisation(string id, string name, int length, HashSet<Subject>? subjects = null) : base(id, name, length, subjects)
         {
             Id = id;
             Name = name;

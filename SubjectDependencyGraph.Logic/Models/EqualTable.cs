@@ -20,7 +20,7 @@
         /// <param name="dto">The dto for the equality table.</param>
         /// <param name="syllabi">The list of syllabi.</param>
         /// <exception cref="InvalidOperationException"> Throws if the correct syllabi not present.</exception>
-        public EqualTable(EqualTableDto dto, List<Syllabus> syllabi)
+        public EqualTable(EqualTableDto dto, HashSet<Syllabus> syllabi)
         {
             Syllabus fromSyllabus = syllabi.First(x => dto.FromSyllabus == x.Id);
             Syllabus toSyllabus = syllabi.First(x => dto.ToSyllabus == x.Id);
@@ -31,7 +31,7 @@
             // Not that simple considering I fucked up first.
             Subjects = dto.Subjects.Select(subjectStringArray =>
             (neededSubject: toSyllabus.GetSubjectsWithSpec().First(y => y.Id == subjectStringArray.Key),
-            requiredSubjects: fromSyllabus.GetSubjectsWithSpec().Where(Subject => subjectStringArray.Value.Contains(Subject.Id)).ToList()))
+            requiredSubjects: fromSyllabus.GetSubjectsWithSpec().Where(Subject => subjectStringArray.Value.Contains(Subject.Id)).ToHashSet()))
             .ToDictionary(x => x.neededSubject, x => x.requiredSubjects);
         }
 
@@ -49,7 +49,7 @@
         /// The table of equvalence
         /// The key is the subject we want, and the list are the required subjects.
         /// </summary>
-        public Dictionary<Subject, List<Subject>> Subjects { get; }
+        public Dictionary<Subject, HashSet<Subject>> Subjects { get; }
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

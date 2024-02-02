@@ -1,6 +1,6 @@
 ﻿@using SubjectDependencyGraph.Blazor.Resources
 @using SubjectDependencyGraph.Shared.Models
-<MudDataGrid ReadOnly="ReadOnly" Filterable=true Items="Syllabi" EditMode="DataGridEditMode.Cell">
+<MudDataGrid T="Syllabus" ReadOnly="ReadOnly" Filterable=false SortMode="SortMode.None" Items="Syllabi" EditMode="DataGridEditMode.Cell">
     <Columns>
         <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Syllabus_Id"></PropertyColumn>
         <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Syllabus_Name"></PropertyColumn>
@@ -8,7 +8,7 @@
         <PropertyColumn Property="x=>x.RequiredMustChoseCredit" Title="@AppStrings.Syllabus_MustChoseCredit"></PropertyColumn>
         <PropertyColumn Property="x=>x.RequiredChosableCredit" Title="@AppStrings.Syllabus_ChosableCredit"></PropertyColumn>
         <PropertyColumn Property="x=>x.StartingSpecSemester" Title="@AppStrings.Syllabus_StartingSpecSemester"></PropertyColumn>
-        <TemplateColumn IsEditable="false" Title="@AppStrings.Syllabus_Specialisations">
+        <TemplateColumn Sortable="false" IsEditable="false" Title="@AppStrings.Syllabus_Specialisations">
             <CellTemplate>
                 <MudStack>
                     @foreach (var spec in context.Item.Specialisations)
@@ -17,13 +17,16 @@
                     }
                 </MudStack>
             </CellTemplate>
-        </TemplateColumn>     
+        </TemplateColumn>
     </Columns>
+    <PagerContent>
+        <MudDataGridPager />
+    </PagerContent>
 </MudDataGrid>
 
 @code {
     [Parameter]
-    public List<Syllabus>? Syllabi { get; set; }
+    public IEnumerable<Syllabus>? Syllabi { get; set; }
 
     [Parameter]
     public bool ReadOnly { get; set; } = false;

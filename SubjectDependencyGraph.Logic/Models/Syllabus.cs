@@ -23,7 +23,7 @@
         /// <summary>
         /// The list of specializations for the syllabus.
         /// </summary>
-        public List<Specialisation> Specialisations { get; }
+        public HashSet<Specialisation> Specialisations { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Syllabus"/> class.
@@ -36,7 +36,7 @@
         /// <param name="startingSpecSemester">The starting semester for the syllabus specialization.</param>
         /// <param name="specialisations">The list of specializations for the syllabus.</param>
         /// <param name="subjects">The list of subjects for the syllabus.</param>
-        public Syllabus(string id, string name, int length, int requiredMustChoseCredit, int requiredChosableCredit, int startingSpecSemester, List<Specialisation>? specialisations = null, List<Subject>? subjects = null) : base(id, name, length, subjects)
+        public Syllabus(string id, string name, int length, int requiredMustChoseCredit, int requiredChosableCredit, int startingSpecSemester, HashSet<Specialisation>? specialisations = null, HashSet<Subject>? subjects = null) : base(id, name, length, subjects)
         {
             Id = id;
             Name = name;

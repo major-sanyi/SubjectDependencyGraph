@@ -33,7 +33,7 @@
 @code {
     private Syllabus? _selectedSyllabus;
 
-    protected IReadOnlyList<Syllabus>? syllabi { get; set; }
+    protected HashSet<Syllabus>? syllabi { get; set; }
     protected Syllabus? selectedSyllabus
     {
         get => _selectedSyllabus; set
@@ -52,13 +52,13 @@
         }
     }
     protected IEnumerable<string> selectedSpecs = new HashSet<string>();
-    protected IReadOnlyDictionary<Subject, Boolean> subjects => selectedSyllabus?.GetSubjectsWithSpecMarked(selectedSpecs.ToArray()) ?? new Dictionary<Subject, bool>();
+    protected Dictionary<Subject, Boolean> subjects => selectedSyllabus?.GetSubjectsWithSpecMarked(selectedSpecs.ToArray()) ?? new Dictionary<Subject, bool>();
 
     protected override void OnInitialized()
     {
         syllabi = SyllabiService.Syllabi;
         _selectedSyllabus = PageMemory.SyllabusSelected;
-        var finishedSubject = LocalStorage.GetItem<Dictionary<string, List<string>>>(Constants.FinishedSubjectStorageKey);
+        var finishedSubject = LocalStorage.GetItem<Dictionary<string, HashSet<string>>>(Constants.FinishedSubjectStorageKey);
         if (finishedSubject is not null)
         {
             SyllabiService.ImportCompletedSubjects(finishedSubject);
@@ -67,7 +67,7 @@
     }
     protected void SaveFinishedSubjects()
     {
-        LocalStorage.SetItem<Dictionary<string, List<string>>>(Constants.FinishedSubjectStorageKey, SyllabiService.ExportCompletedSubjects());
+        LocalStorage.SetItem<Dictionary<string, HashSet<string>>>(Constants.FinishedSubjectStorageKey, SyllabiService.ExportCompletedSubjects());
     }
     protected void ClearFinishedSubjects()
     {

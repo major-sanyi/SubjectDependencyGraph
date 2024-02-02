@@ -23,7 +23,7 @@
         /// <summary>
         /// List of subjects included in the syllabus.
         /// </summary>
-        public List<Subject> Subjects { get; }
+        public HashSet<Subject> Subjects { get; set; }
 
         /// <summary>
         /// Constructor for the SyllabusParent class.
@@ -32,7 +32,7 @@
         /// <param name="name">Name of the syllabus.</param>
         /// <param name="length">Length of the syllabus.</param>
         /// <param name="subjects">List of subjects included in the syllabus.</param>
-        protected SyllabusParent(string id, string name, int length, List<Subject>? subjects = null)
+        protected SyllabusParent(string id, string name, int length, HashSet<Subject>? subjects = null)
         {
             Id = id;
             Name = name;
@@ -54,7 +54,7 @@
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            return Id.GetHashCode() ^ Name.GetHashCode();
+            return Id.GetHashCode();
         }
     }
 }
