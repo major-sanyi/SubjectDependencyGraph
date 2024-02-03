@@ -1,5 +1,13 @@
-﻿@inherits LayoutComponentBase
+﻿@using Blazored.LocalStorage
+@using Newtonsoft.Json
+@using SubjectDependencyGraph.Blazor.Resources
+@using SubjectDependencyGraph.Shared.Models
+@using SubjectDependencyGraph.Shared.Services
+@inherits LayoutComponentBase
 @inject NavigationManager Navigation
+@inject ISyncLocalStorageService LocalStorage
+@inject ISyllabiService SyllabiService
+
 
 <div class="page">
     <main>
@@ -8,7 +16,7 @@
             <MudTabPanel Text="syllabi list" />
             <MudTabPanel Text="Subjects" />
             <MudTabPanel Text="Equvalence" />
-            <MudTabPanel Text="Admin"/>
+            <MudTabPanel Text="Admin" />
         </MudTabs>
         <article class="content px-4">
             @Body
@@ -32,4 +40,31 @@
         "equallist",
         "admin"
     ];
+    protected override void OnInitialized()
+    {
+        var finishedSubject = LocalStorage.GetItem<Dictionary<string, HashSet<string>>>(BlazorAppConstants.FinishedSubjectStorageKey);
+        if (finishedSubject is not null)
+        {
+            SyllabiService.ImportCompletedSubjects(finishedSubject);
+        }
+        string? importedSyllabiString = LocalStorage.GetItem<string>(BlazorAppConstants.ImportedSyllabiStorageKey);
+        HashSet<Syllabus> importedSyllabi = [];
+        if (importedSyllabiString is not null)
+        {
+            importedSyllabi = JsonConvert.DeserializeObject<HashSet<Syllabus>>(importedSyllabiString) ?? [];
+        }
+        foreach (var item in importedSyllabi)
+        {
+            if (SyllabiService.Syllabi.Contains(item))
+            {
+                SyllabiService.Syllabi.Remove(item);
+                SyllabiService.Syllabi.Add(item);
+            }
+            else
+            {
+                SyllabiService.Syllabi.Add(item);
+            }
+        }
+        base.OnInitialized();
+    }
 }

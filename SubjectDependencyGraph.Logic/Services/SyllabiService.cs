@@ -24,13 +24,11 @@ namespace SubjectDependencyGraph.Shared.Services
         /// <inheritdoc/>
         public SyllabiService() : this([.. defaultSyllabi], defaultEquals)
         {
-
         }
 
         /// <inheritdoc/>
         public SyllabiService(Dictionary<string, HashSet<string>> completedSubjects) : this([.. defaultSyllabi], defaultEquals, completedSubjects)
         {
-
         }
 
         /// <inheritdoc/>

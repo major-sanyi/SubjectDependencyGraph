@@ -58,11 +58,6 @@
     {
         syllabi = SyllabiService.Syllabi;
         _selectedSyllabus = PageMemory.SyllabusSelected;
-        var finishedSubject = LocalStorage.GetItem<Dictionary<string, HashSet<string>>>(BlazorAppConstants.FinishedSubjectStorageKey);
-        if (finishedSubject is not null)
-        {
-            SyllabiService.ImportCompletedSubjects(finishedSubject);
-        }
         base.OnInitialized();
     }
     protected void SaveFinishedSubjects()
