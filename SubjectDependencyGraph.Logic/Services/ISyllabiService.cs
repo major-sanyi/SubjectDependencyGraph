@@ -18,12 +18,6 @@ namespace SubjectDependencyGraph.Shared.Services
         IReadOnlyList<EqualTable> EqualityTables { get; }
 
         /// <summary>
-        /// Adds a new syllabus.
-        /// </summary>
-        /// <param name="syllabus">The syllabus to add.</param>
-        void AddSyllabus(Syllabus syllabus);
-
-        /// <summary>
         /// Clears finished status of subjects.
         /// </summary>
         void ClearFinishStatus();

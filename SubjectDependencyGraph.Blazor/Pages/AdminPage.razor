@@ -1,13 +1,24 @@
 ﻿@page "/admin"
+@using Newtonsoft.Json
 @using SubjectDependencyGraph.Blazor.PageComponents.Admin
 @using SubjectDependencyGraph.Shared.Models
 @using SubjectDependencyGraph.Shared.Services
+@using System.Text
+@using System.Runtime.InteropServices.JavaScript
+@implements IAsyncDisposable
 @inject ISyllabiService SyllabiService
+@inject IJSRuntime JS
 
 <MudDivider />
 <MudTabs Elevation="4" Rounded="true" Color="@Color.Secondary">
     <MudTabPanel Text="Syllabus">
-        <SyllabusAdminComponent Syllabi="[..Syllabi]" />
+        <MudStack Row>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="()=>{Syllabi?.Add(new Syllabus());}">Add Syllabus</MudButton>
+            <MudButton @onclick="DownloadFileFromStream">
+                Download Syllabi
+            </MudButton>
+        </MudStack>
+        <SyllabusAdminComponent Syllabi="Syllabi" />
     </MudTabPanel>
     <MudTabPanel Text="Spec">
         <MudStack Row>
@@ -17,10 +28,11 @@
                     <MudSelectItem Value="@item">@item</MudSelectItem>
                 }
             </MudSelect>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="()=>{SelectedSyllabus?.Specialisations?.Add(new Specialisation());}">Add Specialisation</MudButton>
         </MudStack>
         <SpecialisationAdminComponent ReadOnly=false Specs="[..SelectedSyllabus?.Specialisations]" />
     </MudTabPanel>
-    <MudTabPanel Text="Subjects">
+    <MudTabPanel Text="Main Subjects">
         <MudStack Row>
             <MudSelect @bind-Value="SelectedSyllabus">
                 @foreach (var item in Syllabi ?? [])
@@ -28,19 +40,82 @@
                     <MudSelectItem Value="@item">@item</MudSelectItem>
                 }
             </MudSelect>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="()=>{SelectedSyllabus?.Subjects?.Add(new Subject());}">Add</MudButton>
         </MudStack>
-        <SubjectAdminComponent Subjects="SelectedSyllabus?.GetSubjectsWithSpecMarked()" />
+        <SubjectAdminComponent Subjects="SelectedSyllabus" AllSubjects="AllSubjects" />
+    </MudTabPanel>
+    <MudTabPanel Text="Spec Subjects">
+        <MudStack Row>
+            <MudSelect @bind-Value="SelectedSyllabus">
+                @foreach (var syllabus in Syllabi ?? [])
+                {
+                    <MudSelectItem Value="@syllabus">@syllabus</MudSelectItem>
+                }
+            </MudSelect>
+            <MudSelect @bind-Value="SelectedSpec">
+                @foreach (var spec in SelectedSyllabus?.Specialisations ?? [])
+                {
+                    <MudSelectItem Value="@spec">@spec</MudSelectItem>
+                }
+            </MudSelect>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="()=>{SelectedSyllabus?.Subjects?.Add(new Subject());}">Add</MudButton>
+        </MudStack>
+        <SubjectAdminComponent Subjects="SelectedSpec" AllSubjects="AllSubjects" />
     </MudTabPanel>
 </MudTabs>
 @code {
-    public IEnumerable<Syllabus>? Syllabi { get; set; }
-    public Syllabus? SelectedSyllabus { get; set; }
+    protected HashSet<Syllabus>? Syllabi { get; set; }
+    protected Syllabus? SelectedSyllabus { get; set; }
+    protected Specialisation? SelectedSpec { get; set; }
+    private IJSObjectReference? module;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            /*
+                Change the {PATH} placeholder in the next line to the path of
+                the collocated JS file in the app. Examples:
+
+                ./Components/Pages/JsCollocation2.razor.js (.NET 8 or later)
+                ./Pages/JsCollocation2.razor.js (.NET 7 or earlier)
+            */
+            module = await JS.InvokeAsync<IJSObjectReference>("import",
+                "./Pages/AdminPage.razor.js");
+        }
+    }
+
+    private IEnumerable<Subject>? AllSubjects => SelectedSyllabus?.GetSubjectsWithSpec();
 
     protected override void OnInitialized()
     {
-        Syllabi = SyllabiService.Syllabi.ToList();
+        Syllabi = SyllabiService.Syllabi;
         SelectedSyllabus = Syllabi.First();
+        SelectedSpec = SelectedSyllabus.Specialisations.First();
         base.OnInitialized();
+    }
+    private Stream GetFileStream()
+    {
+        var fileStream = new MemoryStream(Encoding.Default.GetBytes(JsonConvert.SerializeObject(Syllabi)));
+        return fileStream;
+    }
+
+    private async Task DownloadFileFromStream()
+    {
+        var fileStream = GetFileStream();
+        var fileName = "syllabi.Json";
+
+        using var streamRef = new DotNetStreamReference(stream: fileStream);
+        if (module is not null)
+            await module.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
+        StateHasChanged();
+    }
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
     }
 
 }

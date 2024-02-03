@@ -1,9 +1,13 @@
-﻿namespace SubjectDependencyGraph.Shared.Models
+﻿using Newtonsoft.Json;
+using System.Collections;
+
+namespace SubjectDependencyGraph.Shared.Models
 {
     /// <summary>
     /// Abstract class for modelling university course syllabuses.
     /// </summary>
-    public abstract class SyllabusParent
+    [JsonObject]
+    public abstract class SyllabusParent : IEnumerable<Subject>
     {
         /// <summary>
         /// Unique identifier for the syllabus.
@@ -26,20 +30,15 @@
         public HashSet<Subject> Subjects { get; set; }
 
         /// <summary>
-        /// Constructor for the SyllabusParent class.
+        /// Constructor for SyllabusParent.
         /// </summary>
-        /// <param name="id">Unique identifier for the syllabus.</param>
-        /// <param name="name">Name of the syllabus.</param>
-        /// <param name="length">Length of the syllabus.</param>
-        /// <param name="subjects">List of subjects included in the syllabus.</param>
-        protected SyllabusParent(string id, string name, int length, HashSet<Subject>? subjects = null)
+        protected SyllabusParent()
         {
-            Id = id;
-            Name = name;
-            Length = length;
-            Subjects = subjects ?? [];
+            Id = Guid.NewGuid().ToString();
+            Name = "To be Filled";
+            Length = 0;
+            Subjects = [];
         }
-
         /// <inheritdoc/>
         public override bool Equals(object? obj)
         {
@@ -61,5 +60,15 @@
             return $"{Name} - {Id}";
         }
 
+        /// <inheritdoc/>
+        public IEnumerator<Subject> GetEnumerator()
+        {
+            return Subjects.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

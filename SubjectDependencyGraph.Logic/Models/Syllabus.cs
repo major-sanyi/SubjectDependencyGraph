@@ -23,28 +23,17 @@
         /// <summary>
         /// The list of specializations for the syllabus.
         /// </summary>
-        public HashSet<Specialisation> Specialisations { get; set; }
+        public HashSet<Specialisation> Specialisations { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Syllabus"/> class.
+        /// Constructor.
         /// </summary>
-        /// <param name="id">The syllabus ID.</param>
-        /// <param name="name">The syllabus name.</param>
-        /// <param name="length">The syllabus length.</param>
-        /// <param name="requiredMustChoseCredit">The required must-choose credit for the syllabus.</param>
-        /// <param name="requiredChosableCredit">The required chosable credit for the syllabus.</param>
-        /// <param name="startingSpecSemester">The starting semester for the syllabus specialization.</param>
-        /// <param name="specialisations">The list of specializations for the syllabus.</param>
-        /// <param name="subjects">The list of subjects for the syllabus.</param>
-        public Syllabus(string id, string name, int length, int requiredMustChoseCredit, int requiredChosableCredit, int startingSpecSemester, HashSet<Specialisation>? specialisations = null, HashSet<Subject>? subjects = null) : base(id, name, length, subjects)
+        public Syllabus()
         {
-            Id = id;
-            Name = name;
-            Length = length;
-            RequiredMustChoseCredit = requiredMustChoseCredit;
-            RequiredChosableCredit = requiredChosableCredit;
-            StartingSpecSemester = startingSpecSemester;
-            Specialisations = specialisations ?? [];
+            RequiredMustChoseCredit = 0;
+            RequiredChosableCredit = 0;
+            StartingSpecSemester = 0;
+            Specialisations = [];
             ResolveSubjectPreReq();
         }
 
@@ -59,34 +48,11 @@
         }
 
         /// <summary>
-        /// Gets all avalaible subjects including specialisation subjects. Specialisations marked as true.
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<Subject, bool> GetSubjectsWithSpecMarked()
-        {
-            return GetAllSubjectsMarked();
-        }
-
-        /// <summary>
         /// Gets all avalaible subjects including specialisation subjects from selected specs. Specialisations marked as true.
         /// </summary>
+        ///<param name="selectedSpecs"> Limits the specifications. If <see langword="null"/> subjects from all specs will be returned.</param>
         /// <returns></returns>
-        public Dictionary<Subject, bool> GetSubjectsWithSpecMarked(string[] selectedSpecs)
-        {
-            return GetAllSubjectsMarked(selectedSpecs);
-        }
-
-        private void ResolveSubjectPreReq()
-        {
-            List<Subject> subjects = GetAllSubjectsMarked().Select(x => x.Key).ToList();
-            foreach (var subject in subjects)
-            {
-                IEnumerable<Subject> preReqs = subjects.Where(x => subject.PreRequisiteSubjects.Contains(x.Id));
-                subject.SolvePreREquisites(preReqs);
-            }
-        }
-
-        private Dictionary<Subject, bool> GetAllSubjectsMarked(string[]? selectedSpecs = null)
+        public Dictionary<Subject, bool> GetSubjectsWithSpecMarked(string[]? selectedSpecs = null)
         {
             Dictionary<Subject, bool> output = [];
 
@@ -101,6 +67,19 @@
                 output[subject] = true;
             }
             return output;
+        }
+
+        private void ResolveSubjectPreReq()
+        {
+            List<Subject> subjects = GetSubjectsWithSpecMarked().Select(x => x.Key).ToList();
+            foreach (var subject in subjects)
+            {
+                if (subject.PreRequisiteSubjects != null)
+                {
+                    IEnumerable<Subject> preReqs = subjects.Where(x => subject.PreRequisiteSubjects.Contains(x.Id));
+                    subject.SolvePreREquisites(preReqs);
+                }
+            }
         }
 
         private IEnumerable<Subject> FilterSpecSubjects(string[]? selectedSpecs = null)

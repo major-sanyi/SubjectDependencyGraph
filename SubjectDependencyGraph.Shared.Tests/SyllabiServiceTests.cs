@@ -28,7 +28,7 @@ namespace SubjectDependencyGraph.Shared.Tests
         public void CanImportData()
         {
             //Arrange
-            var syllabiService = new SyllabiService(new Dictionary<string, List<string>>() { { SYLLABUSID, [SUBJECTID] } });
+            var syllabiService = new SyllabiService(new Dictionary<string, HashSet<string>>() { { SYLLABUSID, [SUBJECTID] } });
             var selectedSyllabus = syllabiService.Syllabi.First(x => x.Id == SYLLABUSID);
 
             Assert.That(selectedSyllabus.Subjects, Has.Exactly(1).Matches<Subject>(x => x.Finished));
@@ -53,10 +53,10 @@ namespace SubjectDependencyGraph.Shared.Tests
         public void AddSyllabus_ShouldAddSyllabusToList()
         {
             // Arrange
-            var syllabus = new Syllabus("Syllabus2", "Syllabus 2", 5, 0, 0, 0);
+            var syllabus = new Syllabus() { Id = "Syllabus2", };
 
             // Act
-            _syllabiService.AddSyllabus(syllabus);
+            _syllabiService.Syllabi.Add(syllabus);
 
             // Assert
             Assert.That(_syllabiService.Syllabi, Has.Exactly(1).Matches<SyllabusParent>(x => x.Id == "Syllabus2"));
@@ -66,7 +66,7 @@ namespace SubjectDependencyGraph.Shared.Tests
         public void ExportData_ShouldReturnCorrectCompletedSubjects()
         {
             // Arrange
-            Subject subject = _syllabiService.Syllabi.First(x => x.Id == SYLLABUSID).Subjects[0];
+            Subject subject = _syllabiService.Syllabi.First(x => x.Id == SYLLABUSID).Subjects.First();
             subject.Finished = true;
 
             // Act

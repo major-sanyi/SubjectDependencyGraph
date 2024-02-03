@@ -34,6 +34,18 @@
             requiredSubjects: fromSyllabus.GetSubjectsWithSpec().Where(Subject => subjectStringArray.Value.Contains(Subject.Id)).ToHashSet()))
             .ToDictionary(x => x.neededSubject, x => x.requiredSubjects);
         }
+        /// <summary>
+        /// Constructor for creating new EqualTable.
+        /// </summary>
+        /// <param name="fromSyllabus"></param>
+        /// <param name="toSyllabus"></param>
+        public EqualTable(Syllabus fromSyllabus, Syllabus toSyllabus)
+        {
+            FromSyllabus = fromSyllabus;
+            ToSyllabus = toSyllabus;
+            Subjects = new Dictionary<Subject, HashSet<Subject>>();
+        }
+
 
         /// <summary>
         /// The Syllabus we want to accredit subjects from.
@@ -49,7 +61,7 @@
         /// The table of equvalence
         /// The key is the subject we want, and the list are the required subjects.
         /// </summary>
-        public Dictionary<Subject, HashSet<Subject>> Subjects { get; }
+        public IReadOnlyDictionary<Subject, HashSet<Subject>> Subjects { get; }
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

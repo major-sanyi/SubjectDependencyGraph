@@ -1,10 +1,16 @@
 ﻿@using SubjectDependencyGraph.Blazor.Resources
 @using SubjectDependencyGraph.Shared.Models
-<MudDataGrid T="Specialisation" ReadOnly="ReadOnly"  Items="Specs" EditMode="DataGridEditMode.Cell">
+<MudDataGrid T="Specialisation" ReadOnly="ReadOnly" Items="Specs" EditMode="DataGridEditMode.Cell">
     <Columns>
         <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Syllabus_Id"></PropertyColumn>
         <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Syllabus_Name"></PropertyColumn>
         <PropertyColumn Property="x=>x.Length" Title="@AppStrings.Syllabus_Length"></PropertyColumn>
+        <PropertyColumn IsEditable=false Property="x=>x.Subjects.Count" Title="Number of subjects"></PropertyColumn>
+        <TemplateColumn Sortable="false" IsEditable="false" Title="Title">
+            <CellTemplate>
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="()=>{context.Item.Subjects.Add(new Subject());}">Add Subjects</MudButton>
+            </CellTemplate>
+        </TemplateColumn>
     </Columns>
 
 </MudDataGrid>

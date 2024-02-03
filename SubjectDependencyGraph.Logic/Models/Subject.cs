@@ -8,66 +8,91 @@ namespace SubjectDependencyGraph.Shared.Models
     /// <remarks>
     /// Initializes a new instance of the <see cref="Subject"/> class.
     /// </remarks>
-    /// <param name="id">The ID of the subject.</param>
-    /// <param name="name">The name of the subject.</param>
-    /// <param name="kredit">The credit value of the subject.</param>
-    /// <param name="recommendedSemester">The recommended semester for the subject.</param>
-    /// <param name="language">The language of the subject.</param>
-    /// <param name="preRequisiteSubjects">The list of prerequisites for the subject.</param>
-    public class Subject(string id, string name, int kredit, int recommendedSemester, string language, List<string>? preRequisiteSubjects = null)
+    public class Subject()
     {
         private bool _finished = false;
         private bool _highlighted = false;
+        private bool preReqsSolved = false;
+        private List<string>? preRequisiteSubjects = [];
 
         /// <summary>
         /// Gets or sets the ID of the subject.
         /// </summary>
-        public string Id { get; set; } = id;
+        public string Id { get; set; } = Guid.NewGuid().ToString();
 
         /// <summary>
         /// Gets or sets the name of the subject.
         /// </summary>
-        public string Name { get; set; } = name;
+        public string Name { get; set; } = "To be Filled";
 
         /// <summary>
         /// Gets or sets the credit value of the subject.
         /// </summary>
-        public int Kredit { get; set; } = kredit;
+        public int Kredit { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the recommended semester for the subject.
         /// </summary>
-        public int RecommendedSemester { get; set; } = recommendedSemester;
+        public int RecommendedSemester { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the language of the subject.
         /// </summary>
-        public string Language { get; set; } = language;
+        public string Language { get; set; } = "Hungarian";
 
         /// <summary>
         /// Gets the list of prerequisites for the subject.
         /// It's the ID of the prerequisites subjects.
         /// </summary>
-        public List<string> PreRequisiteSubjects { get; } = preRequisiteSubjects ?? [];
-
+        public List<string>? PreRequisiteSubjects
+        {
+            get
+            {
+                if (!preReqsSolved)
+                {
+                    return preRequisiteSubjects;
+                }
+                else
+                {
+                    return [.. PreRequisiteSubjectsSolved.Select(x => x.Id)];
+                }
+            }
+            set
+            {
+                if (!preReqsSolved)
+                    preRequisiteSubjects = value;
+                else
+                {
+                    Console.Error.WriteLine("Prerequisites are already solved in model, use PreRequisiteSubjectsSolved");
+                }
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool ShouldSerializePreRequisiteSubjects()
+        {
+            return PreRequisiteSubjects?.Count == 0;
+        }
         /// <summary>
         /// Gets the list of prerequisites for the subject.
         /// </summary>
-        [System.Text.Json.Serialization.JsonIgnore]
+        [JsonIgnore]
         [JsonProperty(Required = Required.Default)]
         public HashSet<Subject> PreRequisiteSubjectsSolved { get; set; } = [];
 
         /// <summary>
         /// Gets or sets a value indicating whether the subject is finished.
         /// </summary>
-        [System.Text.Json.Serialization.JsonIgnore]
+        [JsonIgnore]
         [JsonProperty(Required = Required.Default)]
         public bool Finished { get => _finished; set { _finished = value; FinishedChanged(); } }
 
         /// <summary>
         /// Gets or sets a value indicating if the subject has been highlighted.
         /// </summary>
-        [System.Text.Json.Serialization.JsonIgnore]
+        [JsonIgnore]
         [JsonProperty(Required = Required.Default)]
         public bool Highlighted { get => _highlighted; private set { _highlighted = value; HighlightChanged(); } }
 
@@ -88,13 +113,17 @@ namespace SubjectDependencyGraph.Shared.Models
         /// <param name="subjects"></param>
         public void SolvePreREquisites(IEnumerable<Subject> subjects)
         {
-            foreach (var item in subjects)
+            if (preRequisiteSubjects != null)
             {
-                if (PreRequisiteSubjects.Contains(item.Id))
+                foreach (var item in subjects)
                 {
-                    PreRequisiteSubjectsSolved.Add(item);
+                    if (preRequisiteSubjects.Contains(item.Id))
+                    {
+                        PreRequisiteSubjectsSolved.Add(item);
+                    }
                 }
             }
+            preReqsSolved = true;
         }
 
         /// <summary>

@@ -15,20 +15,20 @@ namespace SubjectDependencyGraph.Shared.Services
         /// <inheritdoc/>
         public IReadOnlyList<EqualTable> EqualityTables { get; private set; }
 
-        private readonly static HashSet<Syllabus> defaultSyllabi = JsonConvert.DeserializeObject<HashSet<Syllabus>>(Resources.Resource.OENIK_E) ?? [];
+        private readonly static List<Syllabus> defaultSyllabi = JsonConvert.DeserializeObject<List<Syllabus>>(Resources.Resource.OENIK_E) ?? [];
         // Needs rework lol
         private readonly static List<EqualTableDto> defaultEquals = JsonConvert.DeserializeObject<List<EqualTableDto>>(Resources.Resource.OENIK_E_equals) ?? [];
 
         private readonly HashSet<Syllabus> _syllabi;
 
         /// <inheritdoc/>
-        public SyllabiService() : this(defaultSyllabi, defaultEquals)
+        public SyllabiService() : this([.. defaultSyllabi], defaultEquals)
         {
 
         }
 
         /// <inheritdoc/>
-        public SyllabiService(Dictionary<string, HashSet<string>> completedSubjects) : this(defaultSyllabi, defaultEquals, completedSubjects)
+        public SyllabiService(Dictionary<string, HashSet<string>> completedSubjects) : this([.. defaultSyllabi], defaultEquals, completedSubjects)
         {
 
         }
@@ -58,20 +58,6 @@ namespace SubjectDependencyGraph.Shared.Services
             }
             EqualityTables = equalTables.Select(x => new EqualTable(x, _syllabi)).ToList();
             Console.WriteLine(Syllabi.OrderBy(x => x.Id));
-        }
-
-        /// <inheritdoc/>
-        public void AddSyllabus(Syllabus? syllabus = null)
-        {
-            if (syllabus == null)
-            {
-                //syllabus = new Syllabus() { Id = Guid.NewGuid().ToString(), Name = "Temp name", };
-
-            }
-            else
-            {
-                _syllabi.Add(syllabus);
-            }
         }
 
         /// <inheritdoc/>

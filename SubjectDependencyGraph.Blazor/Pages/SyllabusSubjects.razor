@@ -58,7 +58,7 @@
     {
         syllabi = SyllabiService.Syllabi;
         _selectedSyllabus = PageMemory.SyllabusSelected;
-        var finishedSubject = LocalStorage.GetItem<Dictionary<string, HashSet<string>>>(Constants.FinishedSubjectStorageKey);
+        var finishedSubject = LocalStorage.GetItem<Dictionary<string, HashSet<string>>>(BlazorAppConstants.FinishedSubjectStorageKey);
         if (finishedSubject is not null)
         {
             SyllabiService.ImportCompletedSubjects(finishedSubject);
@@ -67,11 +67,11 @@
     }
     protected void SaveFinishedSubjects()
     {
-        LocalStorage.SetItem<Dictionary<string, HashSet<string>>>(Constants.FinishedSubjectStorageKey, SyllabiService.ExportCompletedSubjects());
+        LocalStorage.SetItem<Dictionary<string, HashSet<string>>>(BlazorAppConstants.FinishedSubjectStorageKey, SyllabiService.ExportCompletedSubjects());
     }
     protected void ClearFinishedSubjects()
     {
         SyllabiService.ClearFinishStatus();
-        LocalStorage.RemoveItem(Constants.FinishedSubjectStorageKey);
+        LocalStorage.RemoveItem(BlazorAppConstants.FinishedSubjectStorageKey);
     }
 }

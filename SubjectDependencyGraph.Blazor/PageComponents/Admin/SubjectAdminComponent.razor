@@ -1,22 +1,22 @@
 ﻿@using SubjectDependencyGraph.Blazor.Resources
 @using SubjectDependencyGraph.Shared.Models
 
-<MudDataGrid T="KeyValuePair<Subject,bool>" Items="Subjects"
+<MudDataGrid Items="Subjects"
              ReadOnly="ReadOnly" Virtualize=true EditMode="DataGridEditMode.Cell"
-             RowStyleFunc="@_rowStyleFunc" Groupable=true>
+             Groupable=true>
     <Columns>
-        <PropertyColumn Property="x=>x.Key.Id" Title="@AppStrings.Subject_Id"></PropertyColumn>
-        <PropertyColumn Property="x=>x.Key.Name" Title="@AppStrings.Subject_Name"></PropertyColumn>
-        <PropertyColumn Property="x=>x.Key.Kredit" Title="@AppStrings.Subject_Kredit"></PropertyColumn>
-        <PropertyColumn Property="x=>x.Key.RecommendedSemester" Title="@AppStrings.Subject_RecommendedSemester"></PropertyColumn>
-        <PropertyColumn Property="x=>x.Key.Language" Title="@AppStrings.Subject_Language"></PropertyColumn>
-        <PropertyColumn SortBy="x=>x.Key.PreRequisiteSubjectsSolved.Any()" Filterable="false" Sortable="false" Property="x=>x.Key.PreRequisiteSubjectsSolved" Title="@AppStrings.Subject_PreRequisiteSubjects">
+        <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Subject_Id"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Subject_Name"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Kredit" Title="@AppStrings.Subject_Kredit"></PropertyColumn>
+        <PropertyColumn Property="x=>x.RecommendedSemester" Title="@AppStrings.Subject_RecommendedSemester"></PropertyColumn>
+        <PropertyColumn Property="x=>x.Language" Title="@AppStrings.Subject_Language"></PropertyColumn>
+        <PropertyColumn SortBy="x=>x.PreRequisiteSubjectsSolved.Any()" Filterable="false" Sortable="false" Property="x=>x.PreRequisiteSubjectsSolved" Title="@AppStrings.Subject_PreRequisiteSubjects">
             <EditTemplate>
-                <MudSelect T="Subject" MultiSelection="true" SelectedValuesChanged="@(x=>HandleSelectedValuesChanged(x,context.Item.Key ))" SelectedValues="context.Item.Key.PreRequisiteSubjectsSolved">
+                <MudSelect T="Subject" MultiSelection="true" SelectedValuesChanged="@(x=>HandleSelectedValuesChanged(x,context.Item ))" SelectedValues="context.Item.PreRequisiteSubjectsSolved">
                     @if (Subjects is not null)
-                        @foreach (var item in (Subjects.Keys))
+                        @foreach (var item in AllSubjects ?? Subjects)
                         {
-                            @if (item.Id != context.Item.Key.Id)
+                            @if (item.Id != context.Item.Id)
                             {
                                 <MudSelectItem T="Subject" Value="@item">@item</MudSelectItem>
                             }
@@ -24,9 +24,9 @@
                 </MudSelect>
             </EditTemplate>
         </PropertyColumn>
-        <PropertyColumn Property="x=>x.Key.Finished" Title="@AppStrings.Subject_Finished">
+        <PropertyColumn Property="x=>x.Finished" Title="@AppStrings.Subject_Finished">
             <EditTemplate>
-                <MudCheckBox @bind-Value="context.Item.Key.Finished" />
+                <MudCheckBox @bind-Value="context.Item.Finished" />
             </EditTemplate>
         </PropertyColumn>
     </Columns>
@@ -37,7 +37,10 @@
 
 @code {
     [Parameter]
-    public Dictionary<Subject, bool>? Subjects { get; set; }
+    public IEnumerable<Subject>? Subjects { get; set; }
+
+    [Parameter]
+    public IEnumerable<Subject>? AllSubjects { get; set; }
 
     [Parameter]
     public bool ReadOnly { get; set; } = false;
@@ -50,14 +53,5 @@
     {
         subject.PreRequisiteSubjectsSolved = new HashSet<Subject>(changedValues);
     }
-    private Func<KeyValuePair<Subject, bool>, int, string> _rowStyleFunc => (x, i) =>
-    {
-        if (x.Value == true)
-        {
-            return $"background-color:{Colors.DeepPurple.Lighten5};";
 
-        }
-
-        return "";
-    };
 }
