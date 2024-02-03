@@ -61,9 +61,17 @@ namespace SubjectDependencyGraph.Shared.Services
         }
 
         /// <inheritdoc/>
-        public void AddSyllabus(Syllabus syllabus)
+        public void AddSyllabus(Syllabus? syllabus = null)
         {
-            _syllabi.Add(syllabus);
+            if (syllabus == null)
+            {
+                //syllabus = new Syllabus() { Id = Guid.NewGuid().ToString(), Name = "Temp name", };
+
+            }
+            else
+            {
+                _syllabi.Add(syllabus);
+            }
         }
 
         /// <inheritdoc/>

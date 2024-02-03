@@ -41,20 +41,25 @@
         }
 
         /// <inheritdoc/>
+        public override bool Equals(object? obj)
+        {
+            var other = obj as SyllabusParent;
+            if (this.Id == other?.Id)
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <inheritdoc/> 
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"{Name} - {Id}";
         }
 
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            return Id.Equals(obj);
-        }
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return Id.GetHashCode();
-        }
     }
 }

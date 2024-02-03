@@ -1,6 +1,6 @@
 ﻿@using SubjectDependencyGraph.Blazor.Resources
 @using SubjectDependencyGraph.Shared.Models
-<MudDataGrid T="Specialisation" ReadOnly="ReadOnly" Filterable=false SortMode="SortMode.None" Items="Specs" EditMode="DataGridEditMode.Cell">
+<MudDataGrid T="Specialisation" ReadOnly="ReadOnly"  Items="Specs" EditMode="DataGridEditMode.Cell">
     <Columns>
         <PropertyColumn Property="x=>x.Id" Title="@AppStrings.Syllabus_Id"></PropertyColumn>
         <PropertyColumn Property="x=>x.Name" Title="@AppStrings.Syllabus_Name"></PropertyColumn>

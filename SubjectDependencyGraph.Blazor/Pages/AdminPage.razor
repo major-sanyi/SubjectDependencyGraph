@@ -9,19 +9,27 @@
     <MudTabPanel Text="Syllabus">
         <SyllabusAdminComponent Syllabi="[..Syllabi]" />
     </MudTabPanel>
-    <MudTabPanel T="Syllabus" Text="Spec">
-        <SpecialisationAdminComponent ReadOnly=true Specs="[..SelectedSyllabus?.Specialisations]" />
-    </MudTabPanel>
-    <MudTabPanel T="Syllabus" Text="Subjects">
+    <MudTabPanel Text="Spec">
         <MudStack Row>
             <MudSelect @bind-Value="SelectedSyllabus">
                 @foreach (var item in Syllabi ?? [])
                 {
-                    <MudSelectItem Value="item">@item</MudSelectItem>
+                    <MudSelectItem Value="@item">@item</MudSelectItem>
                 }
             </MudSelect>
         </MudStack>
-        <SubjectAdminComponent Subjects="SelectedSyllabus?.GetSubjectsWithSpec().ToHashSet()" />
+        <SpecialisationAdminComponent ReadOnly=false Specs="[..SelectedSyllabus?.Specialisations]" />
+    </MudTabPanel>
+    <MudTabPanel Text="Subjects">
+        <MudStack Row>
+            <MudSelect @bind-Value="SelectedSyllabus">
+                @foreach (var item in Syllabi ?? [])
+                {
+                    <MudSelectItem Value="@item">@item</MudSelectItem>
+                }
+            </MudSelect>
+        </MudStack>
+        <SubjectAdminComponent Subjects="SelectedSyllabus?.GetSubjectsWithSpecMarked()" />
     </MudTabPanel>
 </MudTabs>
 @code {
@@ -34,8 +42,5 @@
         SelectedSyllabus = Syllabi.First();
         base.OnInitialized();
     }
-    public void HandleValueChanged(Syllabus value)
-    {
-        
-    }
+
 }
