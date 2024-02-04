@@ -7,16 +7,16 @@
                 <MudText Typo="Typo.overline">@SubjectParam?.Id</MudText>
                 <MudText Typo="Typo.body1">@SubjectParam?.Name</MudText>
             </MudStack>
-
         </MudStack>
 
-        @if (ShowPreReq && (PreReqs?.Any() ?? false))
+        @if (ShowPreReq && (PreReqs.Any()))
     {
+        <p>sadasdsa</p>
         <MudTreeView T="string">
             <MudTreeViewItem TextTypo="Typo.body2" Icon="@Icons.Material.Filled.Subject" Value='"Prerequistes"'>
                 @foreach (var item in PreReqs)
                 {
-                    <MudTreeViewItem TextTypo="Typo.caption" Value="item.ToString()" Icon="@GetPreReqIcon(item.Finished)" IconColor="GetPreReqColor(item.Finished)" />
+                    <MudTreeViewItem TextTypo="Typo.caption" Value="@item.ToString()" Icon="@GetPreReqIcon(item.Finished)" IconColor="GetPreReqColor(item.Finished)" />
                 }
             </MudTreeViewItem>
         </MudTreeView>
@@ -35,7 +35,6 @@
     [Parameter]
     public bool ShowPreReq { get; set; } = true;
 
-
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
@@ -50,11 +49,11 @@
         }
     }
 
-    private HashSet<Subject>? PreReqs
+    private HashSet<Subject> PreReqs
     {
         get
         {
-            return SubjectParam?.PreRequisiteSubjectsSolved;
+            return SubjectParam?.PreRequisiteSubjectsSolved ?? [];
         }
     }
 

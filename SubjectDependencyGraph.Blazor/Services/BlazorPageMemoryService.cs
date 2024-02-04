@@ -9,11 +9,37 @@ namespace SubjectDependencyGraph.Blazor.Services
     /// <param name="syllabiService">Needs Syllabi service for default values</param>
     public class BlazorPageMemoryService(ISyllabiService syllabiService) : IBlazorPageMemoryService
     {
+        private Syllabus syllabusSelected = syllabiService.Syllabi.First();
+
         /// <summary>
         /// The SelectedSyllabus
         /// </summary>
-        public Syllabus SyllabusSelected { get; set; } = syllabiService.Syllabi.First();
-
+        public Syllabus SyllabusSelected
+        {
+            get
+            {
+                if (syllabiService.Syllabi.Contains(syllabusSelected))
+                {
+                    return syllabusSelected;
+                }
+                else
+                {
+                    syllabusSelected = syllabiService.Syllabi.First();
+                    return syllabusSelected;
+                }
+            }
+            set
+            {
+                if (syllabiService.Syllabi.Contains(value))
+                {
+                    syllabusSelected = value;
+                }
+                else
+                {
+                    syllabusSelected = syllabiService.Syllabi.First();
+                }
+            }
+        }
         /// <summary>
         /// The selected equalTable
         /// </summary>

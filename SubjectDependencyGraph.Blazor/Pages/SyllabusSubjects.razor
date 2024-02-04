@@ -8,16 +8,13 @@
 @inject ISyllabiService SyllabiService
 @inject IBlazorPageMemoryService PageMemory
 @inject ISyncLocalStorageService LocalStorage
-
-
-<MudStack Row>
-    <MudSelect T="Syllabus" @bind-Value=selectedSyllabus Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
+<MudStack Row Class="mb-5">
+     <MudSelect T="Syllabus" @bind-Value=PageMemory.SyllabusSelected Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
         @foreach (var item in syllabi ?? [])
         {
             <MudSelectItem Value="@item">@item</MudSelectItem>
         }
     </MudSelect>
-
     <MudSelect T="string" MultiSelection="true" Label="Specs" @bind-SelectedValues=selectedSpecs>
         @foreach (var item in specialisations ?? [])
         {
@@ -27,7 +24,6 @@
     <MudFab Color="Color.Primary" OnClick="SaveFinishedSubjects" StartIcon="@Icons.Material.Filled.Save" />
     <MudFab Color="Color.Primary" OnClick="ClearFinishedSubjects" StartIcon="@Icons.Material.Filled.Delete" />
 </MudStack>
-
 <SubjectListComponent Subjects="subjects" />
 
 @code {

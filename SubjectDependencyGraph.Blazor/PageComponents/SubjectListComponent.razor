@@ -1,11 +1,19 @@
 ﻿@using SubjectDependencyGraph.Shared.Models;
 <MudStack Row Spacing="4" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Start">
-    @foreach (var subjectGroup in Subjects.GroupBy(subject => subject.Key.RecommendedSemester).OrderBy(x => x.Key))
+     @foreach (var subjectGroup in Subjects.GroupBy(subject => subject.Key.RecommendedSemester).OrderBy(x => x.Key))
     {
-        <MudStack Spacing="5" Justify="Justify.FlexStart" AlignItems="AlignItems.Stretch" >
+        <MudStack Spacing="5" Justify="Justify.FlexStart" AlignItems="AlignItems.Stretch">
+            @if (subjectGroup.Any(x => !x.Key.Finished))
+            {
+                <MudChip Icon="@Icons.Material.Filled.Clear" Color="Color.Error"> @(subjectGroup.Key).félév</MudChip>
+            }
+            else
+            {
+                <MudChip Icon="@Icons.Material.Filled.Done" Color="Color.Success"> @(subjectGroup.Key).félév</MudChip>
+            }
             @foreach (var subject in subjectGroup)
             {
-                <SubjectComponent SubjectParam="subject.Key" IsSpecialisation="subject.Value"></SubjectComponent>
+                <SubjectComponent  ShowPreReq="true" SubjectParam="subject.Key" IsSpecialisation="subject.Value"></SubjectComponent>
             }
         </MudStack>
     }
@@ -17,4 +25,13 @@
 
     [Parameter]
     public string[] SelectedSpecs { get; set; } = [];
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        foreach (var item in Subjects ?? [])
+        {
+            item.Key.FinishedChanged += StateHasChanged;
+        }
+    }
 }

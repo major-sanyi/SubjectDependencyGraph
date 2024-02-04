@@ -55,7 +55,10 @@ namespace SubjectDependencyGraph.Shared.Services
                 }
             }
             EqualityTables = equalTables.Select(x => new EqualTable(x, _syllabi)).ToList();
-            Console.WriteLine(Syllabi.OrderBy(x => x.Id));
+            foreach (var item in Syllabi)
+            {
+                item.ResolveSubjectPreReq();
+            }
         }
 
         /// <inheritdoc/>

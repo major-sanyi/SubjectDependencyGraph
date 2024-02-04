@@ -5,5 +5,9 @@
     /// </summary>
     public class Specialisation : SyllabusParent
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public Specialisation() : base() { }
     }
 }

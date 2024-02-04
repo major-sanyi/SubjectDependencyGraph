@@ -28,13 +28,13 @@
         /// <summary>
         /// Constructor.
         /// </summary>
-        public Syllabus()
+        public Syllabus() : base()
         {
             RequiredMustChoseCredit = 0;
             RequiredChosableCredit = 0;
             StartingSpecSemester = 0;
             Specialisations = [];
-            ResolveSubjectPreReq();
+            Subjects = [];
         }
 
         /// <summary>
@@ -69,7 +69,10 @@
             return output;
         }
 
-        private void ResolveSubjectPreReq()
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ResolveSubjectPreReq()
         {
             List<Subject> subjects = GetSubjectsWithSpecMarked().Select(x => x.Key).ToList();
             foreach (var subject in subjects)
