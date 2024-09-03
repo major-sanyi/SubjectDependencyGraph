@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using SubjectDependencyGraph.Shared.Exceptions;
+﻿using SubjectDependencyGraph.Shared.Exceptions;
 using SubjectDependencyGraph.Shared.Models;
 
 namespace SubjectDependencyGraph.Shared.Services
@@ -15,15 +14,30 @@ namespace SubjectDependencyGraph.Shared.Services
         /// <inheritdoc/>
         public IReadOnlyList<EqualTable> EqualityTables { get; private set; }
 
-        private readonly static List<Syllabus> defaultSyllabi = JsonConvert.DeserializeObject<List<Syllabus>>(Resources.Resource.OENIK_E) ?? [];
+        private readonly static List<Syllabus> defaultSyllabi = [];
         // Needs rework lol
-        private readonly static List<EqualTableDto> defaultEquals = JsonConvert.DeserializeObject<List<EqualTableDto>>(Resources.Resource.OENIK_E_equals) ?? [];
+        private readonly static List<EqualTableDto> defaultEquals = [];
 
         private readonly HashSet<Syllabus> _syllabi;
+
+        /// <summary>
+        /// Adds default dependencies. Not clean method needs refactor.
+        /// </summary>
+        /// <param name="syllabi"></param>
+        /// <param name="equalTables"></param>
+        public static void InjectDefaultDependency(IEnumerable<Syllabus> syllabi, IEnumerable<EqualTableDto> equalTables)
+        {
+            defaultSyllabi.AddRange(syllabi);
+            defaultEquals.AddRange(equalTables);
+        }
 
         /// <inheritdoc/>
         public SyllabiService() : this([.. defaultSyllabi], defaultEquals)
         {
+            if (defaultSyllabi.Count <= 0)
+                throw new Exception("Dependencies not loaded");
+            if (defaultEquals.Count <= 0)
+                throw new Exception("Dependencies not loaded");
         }
 
         /// <inheritdoc/>
