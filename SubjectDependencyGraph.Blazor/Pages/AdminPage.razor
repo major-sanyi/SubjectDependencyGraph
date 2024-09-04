@@ -23,15 +23,15 @@
              </MudButton>
              <MudSwitch Color="Color.Secondary" @bind-Value="OverWriteConflictingSyllabus">Overwrite Existing Syllabi</MudSwitch>
              <MudFileUpload T="IBrowserFile" FilesChanged="UploadSyllabus">
-                 <ButtonTemplate>
+                 <ActivatorContent>
                      <MudButton HtmlTag="label"
                                 Variant="Variant.Filled"
                                 Color="Color.Secondary"
                                 StartIcon="@Icons.Material.Filled.CloudUpload"
-                                for="@context.Id">
+                                >
                          Upload Syllabi
                      </MudButton>
-                 </ButtonTemplate>
+                </ActivatorContent>
              </MudFileUpload>
              <MudButton Color="Color.Primary" OnClick="SaveFinishedSubjects" StartIcon="@Icons.Material.Filled.Save">Save Syllabus To Storage</MudButton>
              <MudButton Color="Color.Primary" OnClick="ClearFinishedSubjects" StartIcon="@Icons.Material.Filled.Delete">Clear Syllabus From Storage</MudButton>

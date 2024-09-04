@@ -1,4 +1,5 @@
 ﻿@page "/subjects"
+@using Newtonsoft.Json
 @using SubjectDependencyGraph.Blazor.PageComponents
 @using SubjectDependencyGraph.Blazor.Resources
 @using SubjectDependencyGraph.Blazor.Services
@@ -9,7 +10,7 @@
 @inject IBlazorPageMemoryService PageMemory
 @inject ISyncLocalStorageService LocalStorage
 <MudStack Row Class="mb-5">
-     <MudSelect T="Syllabus" @bind-Value=PageMemory.SyllabusSelected Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
+     <MudSelect T="Syllabus" @bind-Value=selectedSyllabus Label="Syllabus" AdornmentIcon="@Icons.Material.Filled.Book" AdornmentColor="Color.Primary">
         @foreach (var item in syllabi ?? [])
         {
             <MudSelectItem Value="@item">@item</MudSelectItem>
@@ -34,6 +35,7 @@
     {
         get => _selectedSyllabus; set
         {
+            Console.WriteLine(JsonConvert.SerializeObject(value));
             _selectedSyllabus = value;
             if (value is not null)
                 PageMemory.SyllabusSelected = value;

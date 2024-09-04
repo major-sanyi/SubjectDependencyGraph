@@ -1,4 +1,5 @@
 ﻿@page "/syllabi"
+@using Newtonsoft.Json
 @using SubjectDependencyGraph.Blazor.PageComponents
 @using SubjectDependencyGraph.Blazor.PageComponents.Admin
 @using SubjectDependencyGraph.Blazor.Resources
@@ -20,6 +21,7 @@ else
     private IEnumerable<Syllabus>? syllabi;
     protected override void OnInitialized()
     {
+
         syllabi = SyllabiService.Syllabi;
 
         base.OnInitialized();

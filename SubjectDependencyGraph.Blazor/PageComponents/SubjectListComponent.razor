@@ -5,11 +5,11 @@
         <MudStack Spacing="5" Justify="Justify.FlexStart" AlignItems="AlignItems.Stretch">
             @if (subjectGroup.Any(x => !x.Key.Finished))
             {
-                <MudChip Icon="@Icons.Material.Filled.Clear" Color="Color.Error"> @(subjectGroup.Key).félév</MudChip>
+                <MudChip T="string" Icon="@Icons.Material.Filled.Clear" Color="Color.Error"> @(subjectGroup.Key).félév</MudChip>
             }
             else
             {
-                <MudChip Icon="@Icons.Material.Filled.Done" Color="Color.Success"> @(subjectGroup.Key).félév</MudChip>
+                <MudChip T="string" Icon="@Icons.Material.Filled.Done" Color="Color.Success"> @(subjectGroup.Key).félév</MudChip>
             }
             @foreach (var subject in subjectGroup)
             {

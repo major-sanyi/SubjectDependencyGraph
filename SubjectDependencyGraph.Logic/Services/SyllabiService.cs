@@ -36,8 +36,8 @@ namespace SubjectDependencyGraph.Shared.Services
         {
             if (defaultSyllabi.Count <= 0)
                 throw new Exception("Dependencies not loaded");
-            if (defaultEquals.Count <= 0)
-                throw new Exception("Dependencies not loaded");
+            if (defaultEquals.Count <= 0) ;
+            //    throw new Exception("Dependencies not loaded");;
         }
 
         /// <inheritdoc/>
